@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="ECP"><title>ECP's Resume</title><meta name="description" content="A Resume Page Powered By Hexo"><meta name="keywords"><link rel="icon" href="images/favicon.ico"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li><a href="#exfoliating crystallographic plane (ECP) v1.0">exfoliating crystallographic plane (ECP) v1.0</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div></div></div><div class="sidebar animated fadeInDown"><div class="side-content"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:254px;"><h3 title=""><a href="/">ECP</a></h3></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/YJNDL"><i class="fa fa-github"></i>https://github.com/YJNDL</a></li><li><a href="mailto:arvin_huang@szu.edu.cn"><i class="fa fa-envelope"></i>arvin_huang@szu.edu.cn</a></li></ul></div><div class="footer"><div class="p"> <span>© 2025 </span><i class="fa fa-star"></i><span> ECP</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/Cytrogen/hexo-theme-Anatole-Core-Resume" target="_blank">Anatole-Core-Resume</a></div></div></div><div class="content" style="display:none;"><script>//- 如果是移动端，则设置content的margin-top为sidebar的高度
+//- If it is a mobile terminal, set the margin-top of content to the height of sidebar
+window.onload = function() {
+	if (window.matchMedia("(max-width: 960px)").matches) {
+		var sidebar = document.querySelector('.sidebar');
+		var sidebarHeight = sidebar.offsetHeight;
+		document.querySelector('.content').style.marginTop = `${sidebarHeight}px`;
+	}
+	//- 页面加载完成后，显示content
+	//- Display content after page loading is complete
+	document.querySelector(`.content`).style.display = "block";
+
+	//- 监听窗口大小变化，假设用户在桌面端上修改了窗口大小，需要重新设置content的margin-top
+	//- Listen for window size changes, assuming that the user modifies the window size on the desktop terminal, the margin-top of content will get reset
+	window.addEventListener('resize', function() {
+		if (window.matchMedia("(max-width: 960px)").matches) {
+			var sidebar = document.querySelector('.sidebar');
+			var sidebarHeight = sidebar.offsetHeight;
+			document.querySelector('.content').style.marginTop = `${sidebarHeight}px`;
+		} else {
+			//- 如果是桌面端，则设置content的margin-top为60px
+			//- If it is a desktop terminal, set the margin-top of content to 60px
+			document.querySelector('.content').style.marginTop = "60px";
+		}
+	});
+}
+</script><div class="post animated fadeInDown" id="exfoliating crystallographic plane (ECP) v1.0"><div class="post-title"><h1><a>exfoliating crystallographic plane (ECP) v1.0</a></h1></div><div class="post-content"><h1 id="Bond-Density-Evaluation-and-Crystallographic-Plane-Exfoliation"><a href="#Bond-Density-Evaluation-and-Crystallographic-Plane-Exfoliation" class="headerlink" title="Bond Density Evaluation and Crystallographic Plane Exfoliation"></a>Bond Density Evaluation and Crystallographic Plane Exfoliation</h1><p>This repository provides computational methods to identify crystallographic planes suitable for exfoliation from non-van der Waals (non-vdW) bulk materials by evaluating bond density and performing systematic structural exfoliation simulations.</p>
+<h2 id="Bond-Density-Evaluation-and-Plane-Selection"><a href="#Bond-Density-Evaluation-and-Plane-Selection" class="headerlink" title="Bond Density Evaluation and Plane Selection"></a>Bond Density Evaluation and Plane Selection</h2><p>Efficiently screen and identify exfoliable crystallographic planes through the following workflow:</p>
+<h3 id="1-Acquiring-XRD-Patterns"><a href="#1-Acquiring-XRD-Patterns" class="headerlink" title="1. Acquiring XRD Patterns"></a>1. Acquiring XRD Patterns</h3><blockquote>
+<p><strong>Note:</strong> Combine experimental data from the Materials Project or ICSD database with calculated peak positions to identify matches for selection. </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python simulate_xrd.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Identify-Crystallographic-Planes"><a href="#2-Identify-Crystallographic-Planes" class="headerlink" title="2. Identify Crystallographic Planes"></a>2. Identify Crystallographic Planes</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python identify_planes.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Bond-Density-Analysis"><a href="#3-Bond-Density-Analysis" class="headerlink" title="3. Bond Density Analysis"></a>3. Bond Density Analysis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python bond_density_scan.py</span><br></pre></td></tr></table></figure>
+
+<p>Planes exhibiting relatively low bond density are promising for exfoliation.</p>
+<h3 id="4-Calculating-Anisotropic-Binding-Strength"><a href="#4-Calculating-Anisotropic-Binding-Strength" class="headerlink" title="4. Calculating Anisotropic Binding Strength"></a>4. Calculating Anisotropic Binding Strength</h3><p>For those crystallographic plane with low bond density. Use common density functional theory (DFT) software to calculate bonding strengths and determine the differences between out-of-plane and in-plane bonding. </p>
+<p>The definition of Anisotropic Binding Strength is as follows: The Binding Strength calculated by DFT software is used to assess the in-plane and out-of-plane bonds of the respective crystal plane. The difference between the Binding Strength of the out-of-plane bonds and in-plane bonds is then divided by the surface area to obtain the Anisotropic Binding Strength.</p>
+<hr>
+<h2 id="Step-wise-Exfoliation-Procedure"><a href="#Step-wise-Exfoliation-Procedure" class="headerlink" title="Step-wise Exfoliation Procedure"></a>Step-wise Exfoliation Procedure</h2><blockquote>
+<p><strong>Note:</strong> DFT-D3 van der Waals corrections are integrated into all exfoliation simulations.</p>
+</blockquote>
+<p>Follow these detailed steps to simulate the exfoliation process:</p>
+<h3 id="1-Align-Structure"><a href="#1-Align-Structure" class="headerlink" title="1. Align Structure"></a>1. Align Structure</h3><p>Rotate the crystal structure to align the targeted exfoliation plane perpendicular to the c-axis.</p>
+<h3 id="2-Stretch-and-Relax-Structure"><a href="#2-Stretch-and-Relax-Structure" class="headerlink" title="2. Stretch and Relax Structure"></a>2. Stretch and Relax Structure</h3><p>Incrementally stretch the lattice normal to the exfoliation plane, moving the outermost atomic layer approximately Δd &#x3D; 0.1~0.2 Å per step, followed by structural relaxation at each increment.</p>
+<hr>
+<h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><ul>
+<li>Python version: 3.9–3.12</li>
+<li>Required Python libraries: <code>numpy</code>, <code>scipy</code>, <code>matplotlib</code>, <code>pymatgen</code>, <code>ase</code></li>
+</ul>
+<p>Install dependencies via:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy scipy matplotlib pymatgen ase</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>The methodologies used incorporate established computational techniques, including DFT-D3 for energy calculations. Please ensure proper referencing when using these methodologies in your publications.</p>
+<hr>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This project is licensed under the MIT License.</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><hr></div></div></div></div><div class="pagination"><ul class="clearfix"></ul></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script></body></html>
