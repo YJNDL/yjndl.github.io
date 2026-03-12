@@ -104,18 +104,24 @@
 
         <h2>What Is New in v1.3</h2>
         <ul>
-          <li>Automated XRD generation from crystal structures using <code>pymatgen</code>; no manual VESTA export is required.</li>
-          <li>Candidate <code>hkl</code> processing is more conservative: low-intensity reflections can be filtered, obvious duplicates such as <code>001/002</code> and <code>001/00-1</code> are merged, but non-equivalent directions such as <code>102</code> and <code>012</code> are retained until slab generation.</li>
-          <li>Before cleavage scanning, all generated slabs are compared. Only slabs with identical structures are deduplicated; different slab terminations or different internal stackings are kept.</li>
-          <li>Broken bonds are counted with <code>StructureGraph + jimage</code>, avoiding manual image mapping and reducing periodic-boundary ambiguity.</li>
-          <li>Cleavage-plane scanning supports <code>fixed</code>, <code>event</code>, and <code>auto</code> modes. The event mode evaluates only the heights where the bond topology or <code>V_old</code> can change.</li>
-          <li>After the minimum-bonding-density plane is found, the workflow now regenerates a dedicated 2D slab model whose top and bottom surfaces correspond to that optimal cleavage position.</li>
-          <li>The main screening metric in the current workflow is <code>bonding_density = N / V_old</code>, while <code>N / A</code> is kept as an auxiliary area-normalized descriptor.</li>
+          <li>The production script is now <code>version_5.0.py</code>, and the result table records the best cleavage height, shift, and 2D slab metadata for each retained surface.</li>
+          <li>After the minimum-bonding-density plane is identified, the workflow regenerates a dedicated <code>POSCAR_2D_h_k_l.vasp</code> model whose top and bottom surfaces correspond to that optimal cleavage position.</li>
         </ul>
+        <details class="history-updates">
+          <summary>Historical Updates: v1.2</summary>
+          <ul>
+            <li>Automated XRD generation from crystal structures using <code>pymatgen</code>; no manual VESTA export is required.</li>
+            <li>Candidate <code>hkl</code> processing is more conservative: low-intensity reflections can be filtered, obvious duplicates such as <code>001/002</code> and <code>001/00-1</code> are merged, but non-equivalent directions such as <code>102</code> and <code>012</code> are retained until slab generation.</li>
+            <li>Before cleavage scanning, all generated slabs are compared. Only slabs with identical structures are deduplicated; different slab terminations or different internal stackings are kept.</li>
+            <li>Broken bonds are counted with <code>StructureGraph + jimage</code>, avoiding manual image mapping and reducing periodic-boundary ambiguity.</li>
+            <li>Cleavage-plane scanning supports <code>fixed</code>, <code>event</code>, and <code>auto</code> modes. The event mode evaluates only the heights where the bond topology or <code>V_old</code> can change.</li>
+            <li>The main screening metric in the production workflow is <code>bonding_density = N / V_old</code>, while <code>N / A</code> is kept as an auxiliary area-normalized descriptor.</li>
+          </ul>
+        </details>
 
         <h2>Updated Workflow</h2>
         <p>
-          The production pipeline is summarized below as six linked stages, from reflection generation to the
+          The production pipeline is summarized below as seven linked stages, from reflection generation to the
           final cleavage ranking.
         </p>
 
