@@ -711,17 +711,17 @@ a:hover, a:active {
 .workflow-rail {
   position: relative;
   margin: 24px 0 28px;
-  padding-left: 108px;
+  padding-left: 92px;
 }
 
 .workflow-rail:before {
   content: "";
   position: absolute;
-  left: 44px;
+  left: 36px;
   top: 10px;
   bottom: 10px;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(129, 110, 181, 0.42), rgba(118, 202, 255, 0.18));
+  width: 3px;
+  background: linear-gradient(180deg, rgba(129, 110, 181, 0.48), rgba(118, 202, 255, 0.16));
 }
 
 .workflow-rail-item {
@@ -735,29 +735,30 @@ a:hover, a:active {
 
 .workflow-rail-marker {
   position: absolute;
-  left: -108px;
-  top: 18px;
-  width: 88px;
-  height: 44px;
+  left: -92px;
+  top: 14px;
+  width: 74px;
+  height: 74px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.24));
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.28));
   border: 1px solid rgba(255, 255, 255, 0.34);
   box-shadow:
     0 14px 34px rgba(93, 102, 123, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.44);
   color: #6f4db6;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.10em;
+  font-variant-numeric: tabular-nums;
   z-index: 1;
 }
 
 .workflow-rail-card {
   position: relative;
-  padding: 22px 22px 18px;
+  padding: 24px 24px 20px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.30);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -1203,9 +1204,11 @@ a.btn {
 
   .workflow-rail-marker {
     position: static;
-    width: 74px;
-    height: 38px;
+    width: 78px;
+    height: 48px;
     margin-bottom: 12px;
+    border-radius: 18px;
+    font-size: 18px;
   }
 
   .workflow-rail-head {
