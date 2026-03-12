@@ -708,6 +708,222 @@ a:hover, a:active {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
 }
 
+.workflow-glass-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 30px;
+}
+
+.workflow-step-card {
+  position: relative;
+  padding: 22px 20px 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 18px 38px rgba(92, 106, 131, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  overflow: hidden;
+}
+
+.workflow-step-card:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 42%, transparent 76%, rgba(255, 255, 255, 0.08));
+  pointer-events: none;
+}
+
+.workflow-step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #6e47b8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.workflow-step-card h3 {
+  margin: 0 0 10px;
+  color: #42344e;
+  font-size: 20px;
+}
+
+.workflow-step-card p {
+  margin: 0;
+  color: rgba(62, 54, 76, 0.78);
+  line-height: 1.75;
+}
+
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 18px;
+}
+
+.metric-glass-card,
+.glass-chart-card {
+  position: relative;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 20px 44px rgba(92, 106, 131, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  overflow: hidden;
+}
+
+.metric-glass-card {
+  padding: 18px 18px 16px;
+}
+
+.metric-glass-card:before,
+.glass-chart-card:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 36%, transparent 70%, rgba(255, 255, 255, 0.08));
+  pointer-events: none;
+}
+
+.metric-label {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+  color: rgba(83, 73, 104, 0.68);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  position: relative;
+  z-index: 1;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 700;
+  color: #43355a;
+}
+
+.metric-note {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  color: rgba(72, 63, 88, 0.72);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.glass-chart-card {
+  padding: 22px 22px 18px;
+  margin: 6px 0 28px;
+}
+
+.chart-card-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.chart-kicker {
+  margin-bottom: 8px;
+  color: rgba(97, 84, 121, 0.68);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.chart-card-head h3 {
+  margin: 0;
+  color: #403152;
+  font-size: 24px;
+}
+
+.chart-range {
+  position: relative;
+  z-index: 1;
+  margin-top: 2px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: rgba(73, 63, 92, 0.78);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.view-chart {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 300px;
+  margin-top: 18px;
+}
+
+.view-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.view-chart .chart-grid line {
+  stroke: rgba(118, 130, 160, 0.18);
+  stroke-width: 1;
+}
+
+.view-chart .chart-axis text {
+  fill: rgba(84, 74, 103, 0.62);
+  font-size: 11px;
+}
+
+.view-chart .chart-axis .x-label {
+  text-anchor: middle;
+}
+
+.view-chart .chart-area {
+  fill: url(#ecpChartFill);
+}
+
+.view-chart .chart-line {
+  fill: none;
+  stroke: url(#ecpChartStroke);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.view-chart .chart-point circle {
+  fill: #ffffff;
+  stroke: #7f58f2;
+  stroke-width: 3;
+}
+
+.chart-note {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  color: rgba(74, 64, 91, 0.74);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
 /*for archive*/
 .archive {
   width: 100%;
@@ -1033,6 +1249,23 @@ a.btn {
     margin: 20px 16px;
     padding: 0 14px;
     border-radius: 20px;
+  }
+
+  .workflow-glass-grid,
+  .metrics-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-chart-card {
+    padding: 18px 16px 16px;
+  }
+
+  .chart-card-head {
+    flex-direction: column;
+  }
+
+  .metric-value {
+    font-size: 28px;
   }
 
   .post:hover,

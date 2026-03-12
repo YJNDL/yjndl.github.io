@@ -114,6 +114,39 @@
 
         <h2>Updated Workflow</h2>
 
+        <div class="workflow-glass-grid">
+          <div class="workflow-step-card">
+            <div class="workflow-step-index">01</div>
+            <h3>Auto XRD</h3>
+            <p>Generate reflection candidates directly from the bulk structure and apply intensity thresholds before slab construction.</p>
+          </div>
+          <div class="workflow-step-card">
+            <div class="workflow-step-index">02</div>
+            <h3>Clean hkl List</h3>
+            <p>Remove only trivial duplicates up front, while keeping non-equivalent directions until their slab structures are actually compared.</p>
+          </div>
+          <div class="workflow-step-card">
+            <div class="workflow-step-index">03</div>
+            <h3>Build Stable Slabs</h3>
+            <p>Use the production slab settings with fixed vacuum and the stable internal scan window based on <code>4 × ceil(d)</code>.</p>
+          </div>
+          <div class="workflow-step-card">
+            <div class="workflow-step-index">04</div>
+            <h3>Compare Slabs</h3>
+            <p>Deduplicate only when two generated slabs are structurally identical, rather than assuming symmetry reduction is always safe.</p>
+          </div>
+          <div class="workflow-step-card">
+            <div class="workflow-step-index">05</div>
+            <h3>Count Broken Bonds</h3>
+            <p>Track crossing bonds with <code>StructureGraph + jimage</code> so periodic edges are evaluated explicitly and reproducibly.</p>
+          </div>
+          <div class="workflow-step-card">
+            <div class="workflow-step-index">06</div>
+            <h3>Smart Scan</h3>
+            <p>Choose between fixed-step and event-point scans automatically, then rank candidate cleavage planes with <code>N / V_old</code>.</p>
+          </div>
+        </div>
+
         <h3>1. Generate XRD Candidates Automatically</h3>
         <p>
           XRD tables are generated directly from the bulk structure using <code>XRDCalculator</code>. The
@@ -194,6 +227,42 @@
         </p>
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sbatch newvasp.sh</span></pre></td></tr></table></figure>
 
+        <h2>Page View Trend</h2>
+        <p>
+          The visualization below is rendered on the client side from a lightweight data series in
+          <code>js/ecp-dashboard.js</code>. It gives the page a compact traffic dashboard without adding a backend.
+        </p>
+        <div class="metrics-strip">
+          <div class="metric-glass-card">
+            <div class="metric-label">Total Views</div>
+            <div class="metric-value" id="ecp-view-total">0</div>
+            <div class="metric-note">Accumulated across the current series.</div>
+          </div>
+          <div class="metric-glass-card">
+            <div class="metric-label">Peak Day</div>
+            <div class="metric-value" id="ecp-view-peak">0</div>
+            <div class="metric-note" id="ecp-view-peak-label">Waiting for data</div>
+          </div>
+          <div class="metric-glass-card">
+            <div class="metric-label">Window</div>
+            <div class="metric-value" id="ecp-view-window">0</div>
+            <div class="metric-note">Points currently plotted in the trend chart.</div>
+          </div>
+        </div>
+        <div class="glass-chart-card">
+          <div class="chart-card-head">
+            <div>
+              <div class="chart-kicker">Traffic Monitor</div>
+              <h3>Page View Line Chart</h3>
+            </div>
+            <div class="chart-range" id="ecp-view-range">Recent observations</div>
+          </div>
+          <div class="view-chart" id="ecp-view-chart" aria-label="Page view trend chart"></div>
+          <div class="chart-note">
+            Replace the built-in series in <code>js/ecp-dashboard.js</code> with your own exported analytics data if you want the chart to reflect the live site exactly.
+          </div>
+        </div>
+
         <h2>Download Scripts</h2>
         <ul>
           <li><a href="/downloads/version_4.0.py">version_4.0.py</a>: the current production script for material screening.</li>
@@ -236,5 +305,6 @@
   <script src="/js/jquery-migrate-1.2.1.min.js"></script>
   <script src="/js/jquery.appear.js"></script>
   <script src="/js/add-bookmark.js"></script>
+  <script src="/js/ecp-dashboard.js"></script>
 </body>
 </html>
