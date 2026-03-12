@@ -227,42 +227,6 @@
         </p>
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sbatch newvasp.sh</span></pre></td></tr></table></figure>
 
-        <h2>Page View Trend</h2>
-        <p>
-          The visualization below is rendered on the client side from a lightweight data series in
-          <code>js/ecp-dashboard.js</code>. It gives the page a compact traffic dashboard without adding a backend.
-        </p>
-        <div class="metrics-strip">
-          <div class="metric-glass-card">
-            <div class="metric-label">Total Views</div>
-            <div class="metric-value" id="ecp-view-total">0</div>
-            <div class="metric-note">Accumulated across the current series.</div>
-          </div>
-          <div class="metric-glass-card">
-            <div class="metric-label">Peak Day</div>
-            <div class="metric-value" id="ecp-view-peak">0</div>
-            <div class="metric-note" id="ecp-view-peak-label">Waiting for data</div>
-          </div>
-          <div class="metric-glass-card">
-            <div class="metric-label">Window</div>
-            <div class="metric-value" id="ecp-view-window">0</div>
-            <div class="metric-note">Points currently plotted in the trend chart.</div>
-          </div>
-        </div>
-        <div class="glass-chart-card">
-          <div class="chart-card-head">
-            <div>
-              <div class="chart-kicker">Traffic Monitor</div>
-              <h3>Page View Line Chart</h3>
-            </div>
-            <div class="chart-range" id="ecp-view-range">Recent observations</div>
-          </div>
-          <div class="view-chart" id="ecp-view-chart" aria-label="Page view trend chart"></div>
-          <div class="chart-note">
-            Replace the built-in series in <code>js/ecp-dashboard.js</code> with your own exported analytics data if you want the chart to reflect the live site exactly.
-          </div>
-        </div>
-
         <h2>Download Scripts</h2>
         <ul>
           <li><a href="/downloads/version_4.0.py">version_4.0.py</a>: the current production script for material screening.</li>
@@ -305,6 +269,5 @@
   <script src="/js/jquery-migrate-1.2.1.min.js"></script>
   <script src="/js/jquery.appear.js"></script>
   <script src="/js/add-bookmark.js"></script>
-  <script src="/js/ecp-dashboard.js"></script>
 </body>
 </html>
