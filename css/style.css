@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-  background-color: #f3f1ea;
+  background-color: #e9eef6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -11,9 +11,37 @@ body {
   width: 100%;
   margin: 0 auto 30px auto;
   background:
-    radial-gradient(circle at top left, rgba(220, 120, 72, 0.10), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(34, 79, 105, 0.10), transparent 28%),
-    linear-gradient(180deg, #f5f2ec 0%, #f1eee7 100%);
+    radial-gradient(circle at 12% 18%, rgba(255, 176, 126, 0.42), transparent 26%),
+    radial-gradient(circle at 84% 14%, rgba(125, 192, 255, 0.34), transparent 24%),
+    radial-gradient(circle at 72% 78%, rgba(255, 112, 166, 0.20), transparent 26%),
+    linear-gradient(180deg, #f5f8ff 0%, #eef3fb 52%, #edf0f7 100%);
+  overflow-x: hidden;
+}
+
+body:before,
+body:after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body:before {
+  width: 380px;
+  height: 380px;
+  top: -120px;
+  right: -80px;
+  background: rgba(255, 163, 122, 0.30);
+}
+
+body:after {
+  width: 420px;
+  height: 420px;
+  left: -140px;
+  bottom: -120px;
+  background: rgba(110, 198, 255, 0.26);
 }
 
 p {
@@ -116,6 +144,8 @@ a:hover, a:active {
   float: right;
   width: 70%;
   margin-top: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .page-top {
@@ -123,11 +153,12 @@ a:hover, a:active {
   position: fixed;
   right: 0;
   z-index: 3;
-  background: rgba(249, 247, 242, 0.88);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   height: 60px;
-  border-bottom: 1px solid rgba(124, 97, 73, 0.12);
-  box-shadow: 0 10px 30px rgba(59, 42, 28, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 16px 40px rgba(88, 109, 138, 0.12);
 }
 .page-top .nav {
   list-style: none;
@@ -180,9 +211,9 @@ a:hover, a:active {
   -webkit-background-size: cover;
   background-size: cover;
   background:
-    radial-gradient(circle at top left, rgba(231, 175, 115, 0.28), transparent 28%),
-    radial-gradient(circle at 80% 22%, rgba(113, 165, 196, 0.20), transparent 24%),
-    linear-gradient(160deg, #182430 0%, #22384a 46%, #1a2837 100%);
+    linear-gradient(160deg, rgba(36, 58, 86, 0.58) 0%, rgba(65, 97, 131, 0.42) 56%, rgba(29, 45, 65, 0.50) 100%);
+  backdrop-filter: blur(34px) saturate(160%);
+  -webkit-backdrop-filter: blur(34px) saturate(160%);
   height: 100%;
   transition: 0.8s;
   top: 0;
@@ -196,7 +227,7 @@ a:hover, a:active {
   content: "";
   position: absolute;
   inset: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 28px;
   pointer-events: none;
 }
@@ -206,8 +237,8 @@ a:hover, a:active {
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: rgba(216, 102, 44, 0.12);
-  filter: blur(20px);
+  background: rgba(255, 186, 139, 0.22);
+  filter: blur(26px);
   bottom: -90px;
   right: -120px;
   pointer-events: none;
@@ -220,9 +251,20 @@ a:hover, a:active {
   margin: 0 auto;
   padding: 42px 34px 28px;
   border-radius: 30px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-  box-shadow: 0 28px 70px rgba(7, 14, 20, 0.36);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  box-shadow:
+    0 30px 70px rgba(31, 44, 67, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+}
+.sidebar .side-content:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 38%, transparent 62%, rgba(255, 255, 255, 0.08));
+  pointer-events: none;
 }
 .sidebar .logo-title {
   text-align: center;
@@ -232,8 +274,8 @@ a:hover, a:active {
   margin-bottom: 16px;
   padding: 7px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   color: rgba(255, 244, 235, 0.86);
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -252,8 +294,12 @@ a:hover, a:active {
 .sidebar .logo-title .title img {
   padding: 18px 22px;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-  box-shadow: 0 18px 50px rgba(4, 10, 16, 0.34);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08));
+  box-shadow:
+    0 18px 50px rgba(4, 10, 16, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 .sidebar .logo-title .title h3 {
   text-transform: uppercase;
@@ -282,11 +328,12 @@ a:hover, a:active {
 .sidebar .sidebar-badges span {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgba(255, 248, 240, 0.88);
   font-size: 12px;
   letter-spacing: 0.05em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 .sidebar .sidebar-panel {
   margin: 26px auto 0;
@@ -294,9 +341,12 @@ a:hover, a:active {
   padding: 18px 18px 16px;
   text-align: left;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(244, 211, 178, 0.12), rgba(255, 255, 255, 0.04));
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgba(241, 244, 246, 0.84);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 .sidebar .sidebar-panel .panel-label {
   font-size: 11px;
@@ -319,7 +369,7 @@ a:hover, a:active {
 .sidebar .sidebar-panel code {
   padding: 2px 6px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.14);
   color: #fff7ef;
 }
 .sidebar .social-links {
@@ -347,24 +397,32 @@ a:hover, a:active {
   padding: 14px 16px;
   border-radius: 18px;
   color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 14px 28px rgba(14, 24, 37, 0.18);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
 }
 .sidebar .social-links a:hover {
   color: #fff;
-  background: rgba(180, 90, 54, 0.82);
-  border-color: rgba(255, 214, 194, 0.18);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
 }
 
 .post {
-  background: rgba(255, 252, 247, 0.88);
+  background: rgba(255, 255, 255, 0.34);
   margin: 30px;
   padding: 6px 18px 0;
-  border: 1px solid rgba(142, 112, 84, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.30);
   border-radius: 28px;
-  box-shadow: 0 24px 70px rgba(88, 66, 41, 0.10);
+  box-shadow:
+    0 28px 80px rgba(76, 91, 120, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
 }
 .post .post-title h1 {
   text-transform: none;
@@ -402,11 +460,11 @@ a:hover, a:active {
 .post .post-content a {
   text-decoration: none;
   letter-spacing: 0.2px;
-  color: #b45a36;
-  border-bottom: 1px solid rgba(180, 90, 54, 0.25);
+  color: #8a4fd1;
+  border-bottom: 1px solid rgba(138, 79, 209, 0.22);
 }
 .post .post-content a:hover {
-  color: #8f4527;
+  color: #6d3eb1;
 }
 
 .post .post-content h1 {
@@ -439,7 +497,7 @@ a:hover, a:active {
 
 .post .post-footer {
   padding: 0 0 30px 0;
-  border-bottom: 1px solid rgba(142, 112, 84, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 .post .post-footer .meta {
   max-width: 100%;
@@ -492,7 +550,7 @@ a:hover, a:active {
 .pagination {
   margin: 30px;
   padding: 0px 0 56px 0;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
 }
 .pagination ul {
   list-style: none;
@@ -537,7 +595,7 @@ a:hover, a:active {
 
 #disqus_thread {
   margin: 30px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .footer {
@@ -557,6 +615,26 @@ a:hover, a:active {
 }
 .footer a:hover {
   color: #f2b28d;
+}
+
+.post-content blockquote {
+  margin: 1.8em 0;
+  padding: 16px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(18px) saturate(165%);
+  -webkit-backdrop-filter: blur(18px) saturate(165%);
+}
+
+.post-content code {
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  color: #47325c;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
 }
 
 /*for archive*/
