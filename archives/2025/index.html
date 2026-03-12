@@ -194,6 +194,16 @@
         </p>
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sbatch newvasp.sh</span></pre></td></tr></table></figure>
 
+        <h2>Download Scripts</h2>
+        <ul>
+          <li><a href="/downloads/version_4.0.py">version_4.0.py</a>: the current production script for material screening.</li>
+          <li><a href="/downloads/prepare_newvasp_jobs.sh">prepare_newvasp_jobs.sh</a>: helper script for preparing per-material job folders; modify paths and environment settings according to your own machine.</li>
+          <li><a href="/downloads/submit_all_newvasp.sh">submit_all_newvasp.sh</a>: helper script for submitting all prepared jobs; modify it according to your own cluster usage.</li>
+        </ul>
+        <blockquote>
+          <p><strong>Note:</strong> <code>version_4.0.py</code> is the core materials-analysis script. The job-preparation and submission shell scripts are only templates and should be adjusted to match your own server environment, paths, and scheduler settings.</p>
+        </blockquote>
+
         <h2>Dependencies</h2>
         <ul>
           <li>Python 3.9-3.12</li>
