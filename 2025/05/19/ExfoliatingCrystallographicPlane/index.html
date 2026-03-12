@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="ECP">
-  <title>ECP v1.2 · ECP</title>
-  <meta name="description" content="Updated ECP workflow with automated XRD, slab-level deduplication, StructureGraph + jimage bond counting, and optimized plane scanning.">
+  <title>ECP v1.3 · ECP</title>
+  <meta name="description" content="Updated ECP workflow with automated XRD, slab-level deduplication, StructureGraph + jimage bond counting, optimized plane scanning, and 2D slab export from the best cleavage plane.">
   <link rel="icon" href="/images/favicon.ico">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta content="yes" name="apple-mobile-web-app-capable">
@@ -20,7 +20,7 @@
 <body>
   <div class="page-top animated fadeInDown">
     <div class="nav">
-      <li><a href="#ecp-v1-2">Exfoliating Crystallographic Plane (ECP) v1.2</a></li>
+      <li><a href="#ecp-v1-3">Exfoliating Crystallographic Plane (ECP) v1.3</a></li>
     </div>
     <div class="information">
       <div class="back_btn">
@@ -48,8 +48,8 @@
         </div>
         <div class="sidebar-panel">
           <div class="panel-label">Current Release</div>
-          <div class="panel-value">ECP v1.2</div>
-          <div class="panel-text">Built around the current production workflow in <code>version_4.0.py</code>.</div>
+          <div class="panel-value">ECP v1.3</div>
+          <div class="panel-text">Built around the current production workflow in <code>version_5.0.py</code>.</div>
         </div>
       </div>
       <ul class="social-links">
@@ -89,26 +89,27 @@
       };
     </script>
 
-    <div class="post animated fadeInDown" id="ecp-v1-2">
+    <div class="post animated fadeInDown" id="ecp-v1-3">
       <div class="post-title">
-        <h1><a>ECP v1.2: Updated Plane Screening Workflow</a></h1>
+        <h1><a>ECP v1.3: Updated Plane Screening Workflow</a></h1>
       </div>
 
       <div class="post-content">
-        <h1>Exfoliating Crystallographic Plane (ECP) v1.2</h1>
+        <h1>Exfoliating Crystallographic Plane (ECP) v1.3</h1>
         <p>
           This page documents the current production workflow for screening exfoliable crystallographic planes
           from non-vdW bulk materials. The method has been updated to match the latest implementation used in
-          <code>version_4.0.py</code>.
+          <code>version_5.0.py</code>.
         </p>
 
-        <h2>What Is New in v1.2</h2>
+        <h2>What Is New in v1.3</h2>
         <ul>
           <li>Automated XRD generation from crystal structures using <code>pymatgen</code>; no manual VESTA export is required.</li>
           <li>Candidate <code>hkl</code> processing is more conservative: low-intensity reflections can be filtered, obvious duplicates such as <code>001/002</code> and <code>001/00-1</code> are merged, but non-equivalent directions such as <code>102</code> and <code>012</code> are retained until slab generation.</li>
           <li>Before cleavage scanning, all generated slabs are compared. Only slabs with identical structures are deduplicated; different slab terminations or different internal stackings are kept.</li>
           <li>Broken bonds are counted with <code>StructureGraph + jimage</code>, avoiding manual image mapping and reducing periodic-boundary ambiguity.</li>
           <li>Cleavage-plane scanning supports <code>fixed</code>, <code>event</code>, and <code>auto</code> modes. The event mode evaluates only the heights where the bond topology or <code>V_old</code> can change.</li>
+          <li>After the minimum-bonding-density plane is found, the workflow now regenerates a dedicated 2D slab model whose top and bottom surfaces correspond to that optimal cleavage position.</li>
           <li>The main screening metric in the current workflow is <code>bonding_density = N / V_old</code>, while <code>N / A</code> is kept as an auxiliary area-normalized descriptor.</li>
         </ul>
 
@@ -208,6 +209,21 @@
               </div>
             </div>
           </article>
+
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-watermark">07</div>
+              <div class="workflow-rail-head">
+                <h3>Export 2D Model</h3>
+                <span class="workflow-rail-chip">best cleavage layer</span>
+              </div>
+              <p>Regenerate a dedicated 2D slab from the original bulk so the top and bottom surfaces align with the previously selected minimum-density cleavage position.</p>
+              <div class="workflow-rail-tags">
+                <span>POSCAR_2D_h_k_l</span>
+                <span>best-plane termination</span>
+              </div>
+            </div>
+          </article>
         </div>
 
         <div class="workflow-spec-strip">
@@ -228,11 +244,14 @@
             <div class="workflow-spec-value">N / V_old</div>
           </div>
         </div>
+        <blockquote>
+          <p><strong>2D export:</strong> once the best internal cleavage plane is identified, <code>version_5.0.py</code> writes a corresponding <code>POSCAR_2D_h_k_l.vasp</code> model into the same <code>face_h_k_l</code> folder for downstream relaxation or visualization.</p>
+        </blockquote>
 
         <h2>Recommended Usage</h2>
 
         <h3>Local Batch Workflow</h3>
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span></pre></td><td class="code"><pre><span class="line">python version_4.0.py</span><br><span class="line"># the script reads the built-in config block by default</span></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span></pre></td><td class="code"><pre><span class="line">python version_5.0.py</span><br><span class="line"># the script reads the built-in config block by default</span></pre></td></tr></table></figure>
 
         <h3>Server Workflow</h3>
         <p>
@@ -240,7 +259,7 @@
         </p>
         <ul>
           <li>the target <code>.vasp</code> file</li>
-          <li><code>version_4.0.py</code></li>
+          <li><code>version_5.0.py</code></li>
           <li><code>newvasp.sh</code></li>
           <li>an optional pre-generated <code>XRD/</code> folder</li>
         </ul>
@@ -251,12 +270,12 @@
 
         <h2>Download Scripts</h2>
         <ul>
-          <li><a href="/downloads/version_4.0.py">version_4.0.py</a>: the current production script for material screening.</li>
+          <li><a href="/downloads/version_5.0.py">version_5.0.py</a>: the current production script for material screening and best-plane 2D slab export.</li>
           <li><a href="/downloads/prepare_newvasp_jobs.sh">prepare_newvasp_jobs.sh</a>: helper script for preparing per-material job folders; modify paths and environment settings according to your own machine.</li>
           <li><a href="/downloads/submit_all_newvasp.sh">submit_all_newvasp.sh</a>: helper script for submitting all prepared jobs; modify it according to your own cluster usage.</li>
         </ul>
         <blockquote>
-          <p><strong>Note:</strong> <code>version_4.0.py</code> is the core materials-analysis script. The job-preparation and submission shell scripts are only templates and should be adjusted to match your own server environment, paths, and scheduler settings.</p>
+          <p><strong>Note:</strong> <code>version_5.0.py</code> is the core materials-analysis script. It now exports a dedicated 2D model for the best cleavage plane. The job-preparation and submission shell scripts are only templates and should be adjusted to match your own server environment, paths, and scheduler settings.</p>
         </blockquote>
 
         <h2>Dependencies</h2>
@@ -268,9 +287,9 @@
 
         <h2>Scope</h2>
         <p>
-          ECP v1.2 is intended for fast screening of potentially exfoliable crystallographic planes before
+          ECP v1.3 is intended for fast screening of potentially exfoliable crystallographic planes before
           higher-cost first-principles validation. The current implementation emphasizes reproducibility of slab
-          construction, explicit periodic bond handling, and reduced redundant scans.
+          construction, explicit periodic bond handling, reduced redundant scans, and direct export of the final 2D cleavage model.
         </p>
 
         <hr>
