@@ -114,39 +114,6 @@
 
         <h2>Updated Workflow</h2>
 
-        <div class="workflow-glass-grid">
-          <div class="workflow-step-card">
-            <div class="workflow-step-index">01</div>
-            <h3>Auto XRD</h3>
-            <p>Generate reflection candidates directly from the bulk structure and apply intensity thresholds before slab construction.</p>
-          </div>
-          <div class="workflow-step-card">
-            <div class="workflow-step-index">02</div>
-            <h3>Clean hkl List</h3>
-            <p>Remove only trivial duplicates up front, while keeping non-equivalent directions until their slab structures are actually compared.</p>
-          </div>
-          <div class="workflow-step-card">
-            <div class="workflow-step-index">03</div>
-            <h3>Build Stable Slabs</h3>
-            <p>Use the production slab settings with fixed vacuum and the stable internal scan window based on <code>4 × ceil(d)</code>.</p>
-          </div>
-          <div class="workflow-step-card">
-            <div class="workflow-step-index">04</div>
-            <h3>Compare Slabs</h3>
-            <p>Deduplicate only when two generated slabs are structurally identical, rather than assuming symmetry reduction is always safe.</p>
-          </div>
-          <div class="workflow-step-card">
-            <div class="workflow-step-index">05</div>
-            <h3>Count Broken Bonds</h3>
-            <p>Track crossing bonds with <code>StructureGraph + jimage</code> so periodic edges are evaluated explicitly and reproducibly.</p>
-          </div>
-          <div class="workflow-step-card">
-            <div class="workflow-step-index">06</div>
-            <h3>Smart Scan</h3>
-            <p>Choose between fixed-step and event-point scans automatically, then rank candidate cleavage planes with <code>N / V_old</code>.</p>
-          </div>
-        </div>
-
         <h3>1. Generate XRD Candidates Automatically</h3>
         <p>
           XRD tables are generated directly from the bulk structure using <code>XRDCalculator</code>. The
