@@ -709,56 +709,20 @@ a:hover, a:active {
 }
 
 .workflow-rail {
-  position: relative;
   margin: 24px 0 28px;
-  padding-left: 92px;
-}
-
-.workflow-rail:before {
-  content: "";
-  position: absolute;
-  left: 36px;
-  top: 10px;
-  bottom: 10px;
-  width: 3px;
-  background: linear-gradient(180deg, rgba(129, 110, 181, 0.48), rgba(118, 202, 255, 0.16));
 }
 
 .workflow-rail-item {
-  position: relative;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .workflow-rail-item:last-child {
   margin-bottom: 0;
 }
 
-.workflow-rail-marker {
-  position: absolute;
-  left: -92px;
-  top: 14px;
-  width: 74px;
-  height: 74px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 24px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.28));
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  box-shadow:
-    0 14px 34px rgba(93, 102, 123, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.44);
-  color: #6f4db6;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  font-variant-numeric: tabular-nums;
-  z-index: 1;
-}
-
 .workflow-rail-card {
   position: relative;
-  padding: 24px 24px 20px;
+  padding: 28px 24px 22px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.30);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -768,6 +732,21 @@ a:hover, a:active {
   backdrop-filter: blur(20px) saturate(165%);
   -webkit-backdrop-filter: blur(20px) saturate(165%);
   overflow: hidden;
+}
+
+.workflow-rail-watermark {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -52%);
+  font-size: 88px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: rgba(111, 77, 182, 0.10);
+  pointer-events: none;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+  z-index: 0;
 }
 
 .workflow-rail-card:before {
@@ -1194,23 +1173,6 @@ a.btn {
     border-radius: 20px;
   }
 
-  .workflow-rail {
-    padding-left: 0;
-  }
-
-  .workflow-rail:before {
-    display: none;
-  }
-
-  .workflow-rail-marker {
-    position: static;
-    width: 78px;
-    height: 48px;
-    margin-bottom: 12px;
-    border-radius: 18px;
-    font-size: 18px;
-  }
-
   .workflow-rail-head {
     flex-direction: column;
     align-items: flex-start;
@@ -1218,6 +1180,14 @@ a.btn {
 
   .workflow-rail-head h3 {
     font-size: 21px;
+  }
+
+  .workflow-rail-card {
+    padding: 24px 18px 20px;
+  }
+
+  .workflow-rail-watermark {
+    font-size: 64px;
   }
 
   .workflow-spec-strip {
