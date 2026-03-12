@@ -1,60 +1,214 @@
-<!DOCTYPE html><html lang="en-us"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="ECP"><title>ECP's Resume</title><meta name="description" content="A Resume Page Powered By Hexo"><meta name="keywords"><link rel="icon" href="images/favicon.ico"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li><a href="#exfoliating crystallographic plane (ECP) v1.0">exfoliating crystallographic plane (ECP) v1.0</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div></div></div><div class="sidebar animated fadeInDown"><div class="side-content"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:254px;"><h3 title=""><a href="/">ECP</a></h3></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/YJNDL"><i class="fa fa-github"></i>https://github.com/YJNDL</a></li><li><a href="mailto:arvin_huang@szu.edu.cn"><i class="fa fa-envelope"></i>arvin_huang@szu.edu.cn</a></li></ul></div><div class="footer"><div class="p"> <span>© 2025 </span><i class="fa fa-star"></i><span> ECP</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/Cytrogen/hexo-theme-Anatole-Core-Resume" target="_blank">Anatole-Core-Resume</a></div></div></div><div class="content" style="display:none;"><script>//- 如果是移动端，则设置content的margin-top为sidebar的高度
-//- If it is a mobile terminal, set the margin-top of content to the height of sidebar
-window.onload = function() {
-	if (window.matchMedia("(max-width: 960px)").matches) {
-		var sidebar = document.querySelector('.sidebar');
-		var sidebarHeight = sidebar.offsetHeight;
-		document.querySelector('.content').style.marginTop = `${sidebarHeight}px`;
-	}
-	//- 页面加载完成后，显示content
-	//- Display content after page loading is complete
-	document.querySelector(`.content`).style.display = "block";
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="ECP">
+  <title>ECP v1.2 · ECP</title>
+  <meta name="description" content="Updated ECP workflow with automated XRD, slab-level deduplication, StructureGraph + jimage bond counting, and optimized plane scanning.">
+  <link rel="icon" href="/images/favicon.ico">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/blog_basic.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <script src="/js/jquery.js"></script>
+</head>
+<body>
+  <div class="page-top animated fadeInDown">
+    <div class="nav">
+      <li><a href="#ecp-v1-2">Exfoliating Crystallographic Plane (ECP) v1.2</a></li>
+    </div>
+    <div class="information">
+      <div class="back_btn">
+        <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
+      </div>
+    </div>
+  </div>
 
-	//- 监听窗口大小变化，假设用户在桌面端上修改了窗口大小，需要重新设置content的margin-top
-	//- Listen for window size changes, assuming that the user modifies the window size on the desktop terminal, the margin-top of content will get reset
-	window.addEventListener('resize', function() {
-		if (window.matchMedia("(max-width: 960px)").matches) {
-			var sidebar = document.querySelector('.sidebar');
-			var sidebarHeight = sidebar.offsetHeight;
-			document.querySelector('.content').style.marginTop = `${sidebarHeight}px`;
-		} else {
-			//- 如果是桌面端，则设置content的margin-top为60px
-			//- If it is a desktop terminal, set the margin-top of content to 60px
-			document.querySelector('.content').style.marginTop = "60px";
-		}
-	});
-}
-</script><div class="post animated fadeInDown" id="exfoliating crystallographic plane (ECP) v1.0"><div class="post-title"><h1><a>exfoliating crystallographic plane (ECP) v1.0</a></h1></div><div class="post-content"><h1 id="Bond-Density-Evaluation-and-Crystallographic-Plane-Exfoliation"><a href="#Bond-Density-Evaluation-and-Crystallographic-Plane-Exfoliation" class="headerlink" title="Bond Density Evaluation and Crystallographic Plane Exfoliation"></a>Bond Density Evaluation and Crystallographic Plane Exfoliation</h1><p>This repository provides computational methods to identify crystallographic planes suitable for exfoliation from non-van der Waals (non-vdW) bulk materials by evaluating bond density and performing systematic structural exfoliation simulations.</p>
-<h2 id="Bond-Density-Evaluation-and-Plane-Selection"><a href="#Bond-Density-Evaluation-and-Plane-Selection" class="headerlink" title="Bond Density Evaluation and Plane Selection"></a>Bond Density Evaluation and Plane Selection</h2><p>Efficiently screen and identify exfoliable crystallographic planes through the following workflow:</p>
-<h3 id="1-Acquiring-XRD-Patterns"><a href="#1-Acquiring-XRD-Patterns" class="headerlink" title="1. Acquiring XRD Patterns"></a>1. Acquiring XRD Patterns</h3><blockquote>
-<p><strong>Note:</strong> Combine experimental data from the Materials Project or ICSD database with calculated peak positions to identify matches for selection. </p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python simulate_xrd.py</span><br></pre></td></tr></table></figure>
+  <div class="sidebar animated fadeInDown">
+    <div class="side-content">
+      <div class="logo-title">
+        <div class="title">
+          <img src="/images/logo@2x.png" style="width:254px;">
+          <h3><a href="/">ECP</a></h3>
+        </div>
+      </div>
+      <ul class="social-links">
+        <li><a target="_blank" rel="noopener" href="https://github.com/YJNDL"><i class="fa fa-github"></i>https://github.com/YJNDL</a></li>
+        <li><a href="mailto:arvin_huang@szu.edu.cn"><i class="fa fa-envelope"></i>arvin_huang@szu.edu.cn</a></li>
+      </ul>
+    </div>
+    <div class="footer">
+      <div class="p"><span>© 2026 </span><i class="fa fa-star"></i><span> ECP</span></div>
+      <div class="by_farbox">
+        <span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a>
+        <span> & </span><a href="https://github.com/Cytrogen/hexo-theme-Anatole-Core-Resume" target="_blank">Anatole-Core-Resume</a>
+      </div>
+    </div>
+  </div>
 
-<h3 id="2-Identify-Crystallographic-Planes"><a href="#2-Identify-Crystallographic-Planes" class="headerlink" title="2. Identify Crystallographic Planes"></a>2. Identify Crystallographic Planes</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python identify_planes.py</span><br></pre></td></tr></table></figure>
+  <div class="content" style="display:none;">
+    <script>
+      window.onload = function() {
+        if (window.matchMedia("(max-width: 960px)").matches) {
+          var sidebar = document.querySelector('.sidebar');
+          var sidebarHeight = sidebar.offsetHeight;
+          document.querySelector('.content').style.marginTop = `${sidebarHeight}px`;
+        }
+        document.querySelector('.content').style.display = "block";
 
-<h3 id="3-Bond-Density-Analysis"><a href="#3-Bond-Density-Analysis" class="headerlink" title="3. Bond Density Analysis"></a>3. Bond Density Analysis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python bond_density_scan.py</span><br></pre></td></tr></table></figure>
+        window.addEventListener('resize', function() {
+          if (window.matchMedia("(max-width: 960px)").matches) {
+            var sidebar = document.querySelector('.sidebar');
+            var sidebarHeight = sidebar.offsetHeight;
+            document.querySelector('.content').style.marginTop = `${sidebarHeight}px`;
+          } else {
+            document.querySelector('.content').style.marginTop = "60px";
+          }
+        });
+      };
+    </script>
 
-<p>Planes exhibiting relatively low bond density are promising for exfoliation.</p>
-<h3 id="4-Calculating-Anisotropic-Binding-Strength"><a href="#4-Calculating-Anisotropic-Binding-Strength" class="headerlink" title="4. Calculating Anisotropic Binding Strength"></a>4. Calculating Anisotropic Binding Strength</h3><p>For those crystallographic plane with low bond density. Use common density functional theory (DFT) software to calculate bonding strengths and determine the differences between out-of-plane and in-plane bonding. </p>
-<p>The definition of Anisotropic Binding Strength is as follows: The Binding Strength calculated by DFT software is used to assess the in-plane and out-of-plane bonds of the respective crystal plane. The difference between the Binding Strength of the out-of-plane bonds and in-plane bonds is then divided by the surface area to obtain the Anisotropic Binding Strength.</p>
-<hr>
-<h2 id="Step-wise-Exfoliation-Procedure"><a href="#Step-wise-Exfoliation-Procedure" class="headerlink" title="Step-wise Exfoliation Procedure"></a>Step-wise Exfoliation Procedure</h2><blockquote>
-<p><strong>Note:</strong> DFT-D3 van der Waals corrections are integrated into all exfoliation simulations.</p>
-</blockquote>
-<p>Follow these detailed steps to simulate the exfoliation process:</p>
-<h3 id="1-Align-Structure"><a href="#1-Align-Structure" class="headerlink" title="1. Align Structure"></a>1. Align Structure</h3><p>Rotate the crystal structure to align the targeted exfoliation plane perpendicular to the c-axis.</p>
-<h3 id="2-Stretch-and-Relax-Structure"><a href="#2-Stretch-and-Relax-Structure" class="headerlink" title="2. Stretch and Relax Structure"></a>2. Stretch and Relax Structure</h3><p>Incrementally stretch the lattice normal to the exfoliation plane, moving the outermost atomic layer approximately Δd &#x3D; 0.1~0.2 Å per step, followed by structural relaxation at each increment.</p>
-<hr>
-<h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><ul>
-<li>Python version: 3.9–3.12</li>
-<li>Required Python libraries: <code>numpy</code>, <code>scipy</code>, <code>matplotlib</code>, <code>pymatgen</code>, <code>ase</code></li>
-</ul>
-<p>Install dependencies via:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy scipy matplotlib pymatgen ase</span><br></pre></td></tr></table></figure>
+    <div class="post animated fadeInDown" id="ecp-v1-2">
+      <div class="post-title">
+        <h1><a>ECP v1.2: Updated Plane Screening Workflow</a></h1>
+      </div>
 
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>The methodologies used incorporate established computational techniques, including DFT-D3 for energy calculations. Please ensure proper referencing when using these methodologies in your publications.</p>
-<hr>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This project is licensed under the MIT License.</p>
-</div><div class="post-footer"><div class="meta"><div class="info"><hr></div></div></div></div><div class="pagination"><ul class="clearfix"></ul></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script></body></html>
+      <div class="post-content">
+        <h1>Exfoliating Crystallographic Plane (ECP) v1.2</h1>
+        <p>
+          This page documents the current production workflow for screening exfoliable crystallographic planes
+          from non-vdW bulk materials. The method has been updated to match the latest implementation used in
+          <code>version_4.0.py</code>.
+        </p>
+
+        <h2>What Is New in v1.2</h2>
+        <ul>
+          <li>Automated XRD generation from crystal structures using <code>pymatgen</code>; no manual VESTA export is required.</li>
+          <li>Candidate <code>hkl</code> processing is more conservative: low-intensity reflections can be filtered, obvious duplicates such as <code>001/002</code> and <code>001/00-1</code> are merged, but non-equivalent directions such as <code>102</code> and <code>012</code> are retained until slab generation.</li>
+          <li>Before cleavage scanning, all generated slabs are compared. Only slabs with identical structures are deduplicated; different slab terminations or different internal stackings are kept.</li>
+          <li>Broken bonds are counted with <code>StructureGraph + jimage</code>, avoiding manual image mapping and reducing periodic-boundary ambiguity.</li>
+          <li>Cleavage-plane scanning supports <code>fixed</code>, <code>event</code>, and <code>auto</code> modes. The event mode evaluates only the heights where the bond topology or <code>V_old</code> can change.</li>
+          <li>The main screening metric in the current workflow is <code>bonding_density = N / V_old</code>, while <code>N / A</code> is kept as an auxiliary area-normalized descriptor.</li>
+        </ul>
+
+        <h2>Updated Workflow</h2>
+
+        <h3>1. Generate XRD Candidates Automatically</h3>
+        <p>
+          XRD tables are generated directly from the bulk structure using <code>XRDCalculator</code>. The
+          <code>2θ</code> range and minimum intensity threshold are configurable.
+        </p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">python version_4.0.py generate-xrd</span></pre></td></tr></table></figure>
+
+        <h3>2. Build the Candidate Plane List</h3>
+        <p>
+          The candidate list is cleaned in two stages. First, trivial duplicates are merged at the
+          <code>hkl</code> level. Second, slab structures are compared after slab generation, and only truly
+          identical slabs are skipped before scanning.
+        </p>
+
+        <h3>3. Generate Stable Slabs</h3>
+        <p>
+          The current slab construction follows the stable production settings:
+        </p>
+        <ul>
+          <li><code>SlabGenerator</code> is used with <code>center_slab = False</code>.</li>
+          <li><code>min_slab_size = 4 × ceil(d)</code>.</li>
+          <li><code>min_vacuum_size = 5 Å</code>.</li>
+          <li>The internal scan window is taken from <code>zmin + ceil(d)</code> to <code>zmin + 3 × ceil(d)</code>.</li>
+        </ul>
+
+        <h3>4. Count Crossing Bonds with StructureGraph + jimage</h3>
+        <p>
+          For each scan plane, the slab is converted to a periodic bond graph. A bond is counted as broken only
+          when the two endpoints of the periodic edge lie on opposite sides of the plane. The <code>jimage</code>
+          information is kept explicitly.
+        </p>
+
+        <h3>5. Optimize the Scan</h3>
+        <p>
+          The workflow supports three scan modes:
+        </p>
+        <ul>
+          <li><code>fixed</code>: traditional constant step-size scan.</li>
+          <li><code>event</code>: scan only the interval midpoints between structural event heights.</li>
+          <li><code>auto</code>: choose the cheaper one between <code>fixed</code> and <code>event</code> for the current slab.</li>
+        </ul>
+
+        <h3>6. Rank Cleavage Planes</h3>
+        <p>
+          For each slab, the best internal cleavage position is selected by minimizing:
+        </p>
+        <blockquote>
+          <p><code>bonding_density = N / V_old</code></p>
+        </blockquote>
+        <p>
+          where <code>N</code> is the number of broken bonds and <code>V_old</code> is the layer-spacing-based
+          geometric volume used in the current implementation. The code also records:
+        </p>
+        <ul>
+          <li><code>bonding_density_area = N / A</code></li>
+          <li>broken bond pairs with <code>jimage</code></li>
+          <li>scan mode and scan-plane count</li>
+          <li>slab-level deduplication metadata</li>
+        </ul>
+
+        <h2>Recommended Usage</h2>
+
+        <h3>Local Batch Workflow</h3>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span></pre></td><td class="code"><pre><span class="line">python version_4.0.py</span><br><span class="line"># the script reads the built-in config block by default</span></pre></td></tr></table></figure>
+
+        <h3>Server Workflow</h3>
+        <p>
+          For HPC usage, each material can be prepared as an independent job folder that contains:
+        </p>
+        <ul>
+          <li>the target <code>.vasp</code> file</li>
+          <li><code>version_4.0.py</code></li>
+          <li><code>newvasp.sh</code></li>
+          <li>an optional pre-generated <code>XRD/</code> folder</li>
+        </ul>
+        <p>
+          This allows direct submission with:
+        </p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sbatch newvasp.sh</span></pre></td></tr></table></figure>
+
+        <h2>Dependencies</h2>
+        <ul>
+          <li>Python 3.9-3.12</li>
+          <li><code>numpy</code>, <code>pandas</code>, <code>matplotlib</code>, <code>pymatgen</code>, <code>ase</code>, <code>openpyxl</code>, <code>tqdm</code></li>
+        </ul>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">pip install numpy pandas matplotlib pymatgen ase openpyxl tqdm</span></pre></td></tr></table></figure>
+
+        <h2>Scope</h2>
+        <p>
+          ECP v1.2 is intended for fast screening of potentially exfoliable crystallographic planes before
+          higher-cost first-principles validation. The current implementation emphasizes reproducibility of slab
+          construction, explicit periodic bond handling, and reduced redundant scans.
+        </p>
+
+        <hr>
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License.</p>
+      </div>
+
+      <div class="post-footer">
+        <div class="meta">
+          <div class="info"><hr></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination"><ul class="clearfix"></ul></div>
+  </div>
+
+  <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+  <script src="/js/jquery.appear.js"></script>
+  <script src="/js/add-bookmark.js"></script>
+</body>
+</html>
