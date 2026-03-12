@@ -113,66 +113,121 @@
         </ul>
 
         <h2>Updated Workflow</h2>
-
-        <h3>1. Generate XRD Candidates Automatically</h3>
         <p>
-          XRD tables are generated directly from the bulk structure using <code>XRDCalculator</code>. The
-          <code>2θ</code> range and minimum intensity threshold are configurable.
-        </p>
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">python version_4.0.py generate-xrd</span></pre></td></tr></table></figure>
-
-        <h3>2. Build the Candidate Plane List</h3>
-        <p>
-          The candidate list is cleaned in two stages. First, trivial duplicates are merged at the
-          <code>hkl</code> level. Second, slab structures are compared after slab generation, and only truly
-          identical slabs are skipped before scanning.
+          The production pipeline is summarized below as six linked stages, from reflection generation to the
+          final cleavage ranking.
         </p>
 
-        <h3>3. Generate Stable Slabs</h3>
-        <p>
-          The current slab construction follows the stable production settings:
-        </p>
-        <ul>
-          <li><code>SlabGenerator</code> is used with <code>center_slab = False</code>.</li>
-          <li><code>min_slab_size = 4 × ceil(d)</code>.</li>
-          <li><code>min_vacuum_size = 5 Å</code>.</li>
-          <li>The internal scan window is taken from <code>zmin + ceil(d)</code> to <code>zmin + 3 × ceil(d)</code>.</li>
-        </ul>
+        <div class="workflow-rail">
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-marker">01</div>
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-head">
+                <h3>Auto XRD Candidates</h3>
+                <span class="workflow-rail-chip">XRDCalculator</span>
+              </div>
+              <p>Generate reflection candidates directly from the bulk structure and remove weak peaks before slab construction.</p>
+              <div class="workflow-rail-tags">
+                <span>2θ window</span>
+                <span>intensity filter</span>
+              </div>
+            </div>
+          </article>
 
-        <h3>4. Count Crossing Bonds with StructureGraph + jimage</h3>
-        <p>
-          For each scan plane, the slab is converted to a periodic bond graph. A bond is counted as broken only
-          when the two endpoints of the periodic edge lie on opposite sides of the plane. The <code>jimage</code>
-          information is kept explicitly.
-        </p>
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-marker">02</div>
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-head">
+                <h3>Conservative hkl Filtering</h3>
+                <span class="workflow-rail-chip">keep true directions</span>
+              </div>
+              <p>Merge only trivial duplicates early, while retaining non-equivalent directions until real slab structures can be compared.</p>
+              <div class="workflow-rail-tags">
+                <span>001 = 002</span>
+                <span>102 ≠ 012</span>
+              </div>
+            </div>
+          </article>
 
-        <h3>5. Optimize the Scan</h3>
-        <p>
-          The workflow supports three scan modes:
-        </p>
-        <ul>
-          <li><code>fixed</code>: traditional constant step-size scan.</li>
-          <li><code>event</code>: scan only the interval midpoints between structural event heights.</li>
-          <li><code>auto</code>: choose the cheaper one between <code>fixed</code> and <code>event</code> for the current slab.</li>
-        </ul>
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-marker">03</div>
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-head">
+                <h3>Stable Slab Build</h3>
+                <span class="workflow-rail-chip">production geometry</span>
+              </div>
+              <p>Construct slabs with the fixed production settings so the internal scan region stays reproducible across materials.</p>
+              <div class="workflow-rail-tags">
+                <span>center_slab = False</span>
+                <span>vacuum = 5 Å</span>
+              </div>
+            </div>
+          </article>
 
-        <h3>6. Rank Cleavage Planes</h3>
-        <p>
-          For each slab, the best internal cleavage position is selected by minimizing:
-        </p>
-        <blockquote>
-          <p><code>bonding_density = N / V_old</code></p>
-        </blockquote>
-        <p>
-          where <code>N</code> is the number of broken bonds and <code>V_old</code> is the layer-spacing-based
-          geometric volume used in the current implementation. The code also records:
-        </p>
-        <ul>
-          <li><code>bonding_density_area = N / A</code></li>
-          <li>broken bond pairs with <code>jimage</code></li>
-          <li>scan mode and scan-plane count</li>
-          <li>slab-level deduplication metadata</li>
-        </ul>
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-marker">04</div>
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-head">
+                <h3>Slab Identity Check</h3>
+                <span class="workflow-rail-chip">deduplicate after build</span>
+              </div>
+              <p>Skip only slabs that are structurally identical after generation, instead of over-relying on symmetry reduction up front.</p>
+              <div class="workflow-rail-tags">
+                <span>same slab → reuse</span>
+                <span>different stacking → keep</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-marker">05</div>
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-head">
+                <h3>Jimage Bond Tracing</h3>
+                <span class="workflow-rail-chip">StructureGraph</span>
+              </div>
+              <p>Track broken bonds with explicit periodic edges so each crossing bond is counted with its <code>jimage</code> context.</p>
+              <div class="workflow-rail-tags">
+                <span>periodic edges</span>
+                <span>broken bond pairs</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="workflow-rail-item">
+            <div class="workflow-rail-marker">06</div>
+            <div class="workflow-rail-card">
+              <div class="workflow-rail-head">
+                <h3>Smart Scan and Rank</h3>
+                <span class="workflow-rail-chip">auto / fixed / event</span>
+              </div>
+              <p>Choose the cheaper scan strategy for each slab, then rank cleavage positions with the production metric <code>N / V_old</code>.</p>
+              <div class="workflow-rail-tags">
+                <span>scan mode</span>
+                <span>bonding_density</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="workflow-spec-strip">
+          <div class="workflow-spec-card">
+            <div class="workflow-spec-label">Slab Thickness</div>
+            <div class="workflow-spec-value">4 × ceil(d)</div>
+          </div>
+          <div class="workflow-spec-card">
+            <div class="workflow-spec-label">Vacuum</div>
+            <div class="workflow-spec-value">5 Å</div>
+          </div>
+          <div class="workflow-spec-card">
+            <div class="workflow-spec-label">Bond Backend</div>
+            <div class="workflow-spec-value">StructureGraph + Jimage</div>
+          </div>
+          <div class="workflow-spec-card">
+            <div class="workflow-spec-label">Primary Metric</div>
+            <div class="workflow-spec-value">N / V_old</div>
+          </div>
+        </div>
 
         <h2>Recommended Usage</h2>
 

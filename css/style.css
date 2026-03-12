@@ -708,6 +708,164 @@ a:hover, a:active {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
 }
 
+.workflow-rail {
+  position: relative;
+  margin: 24px 0 28px;
+  padding-left: 108px;
+}
+
+.workflow-rail:before {
+  content: "";
+  position: absolute;
+  left: 44px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(129, 110, 181, 0.42), rgba(118, 202, 255, 0.18));
+}
+
+.workflow-rail-item {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.workflow-rail-item:last-child {
+  margin-bottom: 0;
+}
+
+.workflow-rail-marker {
+  position: absolute;
+  left: -108px;
+  top: 18px;
+  width: 88px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.24));
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  box-shadow:
+    0 14px 34px rgba(93, 102, 123, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.44);
+  color: #6f4db6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  z-index: 1;
+}
+
+.workflow-rail-card {
+  position: relative;
+  padding: 22px 22px 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 20px 44px rgba(92, 106, 131, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  overflow: hidden;
+}
+
+.workflow-rail-card:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 34%, transparent 72%, rgba(255, 255, 255, 0.08));
+  pointer-events: none;
+}
+
+.workflow-rail-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.workflow-rail-head h3 {
+  margin: 0;
+  color: #433352;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.workflow-rail-chip {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(85, 71, 112, 0.82);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.workflow-rail-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgba(64, 56, 80, 0.78);
+  line-height: 1.78;
+}
+
+.workflow-rail-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.workflow-rail-tags span {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: rgba(76, 66, 99, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.workflow-spec-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 10px 0 34px;
+}
+
+.workflow-spec-card {
+  padding: 18px 18px 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 18px 40px rgba(92, 106, 131, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+.workflow-spec-label {
+  margin-bottom: 10px;
+  color: rgba(86, 74, 107, 0.68);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.workflow-spec-value {
+  color: #433353;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 /*for archive*/
 .archive {
   width: 100%;
@@ -1033,6 +1191,34 @@ a.btn {
     margin: 20px 16px;
     padding: 0 14px;
     border-radius: 20px;
+  }
+
+  .workflow-rail {
+    padding-left: 0;
+  }
+
+  .workflow-rail:before {
+    display: none;
+  }
+
+  .workflow-rail-marker {
+    position: static;
+    width: 74px;
+    height: 38px;
+    margin-bottom: 12px;
+  }
+
+  .workflow-rail-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workflow-rail-head h3 {
+    font-size: 21px;
+  }
+
+  .workflow-spec-strip {
+    grid-template-columns: 1fr;
   }
 
   .post:hover,
