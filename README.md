@@ -20,6 +20,7 @@ Detailed method description, update history, and workflow explanation are availa
 
 `version_5.0.py` is the core analysis script.  
 `run_version_5_parallel.py` is an optional Python launcher for multi-material parallel runs.  
+These are the two maintained Python entry points in the current workflow.  
 The shell scripts are templates and should be modified to match your own machine, paths, and cluster environment.
 
 ## Dependencies
