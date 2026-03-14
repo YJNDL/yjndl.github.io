@@ -259,6 +259,17 @@
         <h3>Local Batch Workflow</h3>
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span></pre></td><td class="code"><pre><span class="line">python version_5.0.py</span><br><span class="line"># the script reads the built-in config block by default</span></pre></td></tr></table></figure>
 
+        <h3>Parallel Representative Workflow</h3>
+        <p>
+          To process many representative structures in parallel, edit the <code>USER_CONFIG</code> block in
+          <code>run_version_5_parallel.py</code> and run:
+        </p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">python run_version_5_parallel.py</span></pre></td></tr></table></figure>
+        <p>
+          The launcher prepares a flat input staging directory from <code>materials_ecp_representatives</code> and
+          then calls <code>version_5.0.py</code> with process-level parallelism.
+        </p>
+
         <h3>Server Workflow</h3>
         <p>
           For HPC usage, each material can be prepared as an independent job folder that contains:
@@ -277,11 +288,12 @@
         <h2>Download Scripts</h2>
         <ul>
           <li><a href="/downloads/version_5.0.py">version_5.0.py</a>: the current production script for material screening and best-plane 2D slab export.</li>
+          <li><a href="/downloads/run_version_5_parallel.py">run_version_5_parallel.py</a>: optional parallel launcher for representative datasets; modify the <code>USER_CONFIG</code> block to match your local paths and Python environment.</li>
           <li><a href="/downloads/prepare_newvasp_jobs.sh">prepare_newvasp_jobs.sh</a>: helper script for preparing per-material job folders; modify paths and environment settings according to your own machine.</li>
           <li><a href="/downloads/submit_all_newvasp.sh">submit_all_newvasp.sh</a>: helper script for submitting all prepared jobs; modify it according to your own cluster usage.</li>
         </ul>
         <blockquote>
-          <p><strong>Note:</strong> <code>version_5.0.py</code> is the core materials-analysis script. It now exports a dedicated 2D model for the best cleavage plane. The job-preparation and submission shell scripts are only templates and should be adjusted to match your own server environment, paths, and scheduler settings.</p>
+          <p><strong>Note:</strong> <code>version_5.0.py</code> is the core materials-analysis script. <code>run_version_5_parallel.py</code> is an optional launcher for multi-material parallel runs and should be edited to match your local representative root, Python executable, and output paths. The shell scripts are also templates and should be adjusted to match your own server environment, paths, and scheduler settings.</p>
         </blockquote>
 
         <h2>Dependencies</h2>

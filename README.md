@@ -11,12 +11,15 @@ Detailed method description, update history, and workflow explanation are availa
 
 - `downloads/version_5.0.py`
   The main production script.
+- `downloads/run_version_5_parallel.py`
+  Optional parallel launcher for running many representative structures with `version_5.0.py`.
 - `downloads/prepare_newvasp_jobs.sh`
   Helper script for preparing per-material job folders.
 - `downloads/submit_all_newvasp.sh`
   Helper script for submitting prepared jobs in batch.
 
 `version_5.0.py` is the core analysis script.  
+`run_version_5_parallel.py` is an optional Python launcher for multi-material parallel runs.  
 The shell scripts are templates and should be modified to match your own machine, paths, and cluster environment.
 
 ## Dependencies
@@ -69,7 +72,26 @@ If needed, you can use the script in XRD generation mode:
 python version_5.0.py generate-xrd --input-dir INPUT_DIR --output-dir XRD
 ```
 
-### 3. Server / Cluster Run
+### 3. Parallel Launcher for Representative Sets
+
+If you want to run many representative structures in parallel from a prepared
+`materials_ecp_representatives/` directory, use:
+
+```bash
+python run_version_5_parallel.py
+```
+
+Before running, edit the `USER_CONFIG` block in `run_version_5_parallel.py`.
+
+Most important fields:
+
+- `representative_root`: root folder containing representative `mp-*.vasp` files
+- `version_script`: path to `version_5.0.py`
+- `parallel_workers`: number of worker processes
+- `run_name`: fixed run name for resume mode
+- `resume`: continue an interrupted run
+
+### 4. Server / Cluster Run
 
 For HPC usage, each material can be placed in its own job folder together with:
 
