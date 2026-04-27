@@ -750,14 +750,18 @@ img {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 12px;
+  grid-template-columns: 40px minmax(0, 1fr);
+  grid-template-rows: 40px auto;
+  column-gap: 14px;
+  row-gap: 10px;
   align-items: start;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .workflow-rail-icon {
   display: inline-flex;
+  grid-column: 1;
+  grid-row: 1;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -769,10 +773,13 @@ img {
 }
 
 .workflow-rail-title {
-  min-width: 0;
+  display: contents;
 }
 
 .workflow-rail-head h3 {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
   margin: 0;
   color: var(--ink);
   font-size: 1.08rem;
@@ -782,9 +789,12 @@ img {
 
 .workflow-rail-chip {
   display: inline-flex;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
   align-items: center;
   min-height: 26px;
-  margin-top: 8px;
+  margin-top: 0;
   padding: 0 8px;
   border: 1px solid #cdecef;
   border-radius: 8px;
