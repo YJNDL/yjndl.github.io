@@ -39,7 +39,7 @@ body {
     linear-gradient(rgba(16, 34, 56, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16, 34, 56, 0.045) 1px, transparent 1px);
   background-size: 32px 32px;
-  font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-size: 16px;
   line-height: 1.65;
   overflow-x: hidden;
@@ -59,7 +59,7 @@ p {
   margin: 1em 0;
   color: var(--muted);
   font-size: 1rem;
-  line-height: 1.8;
+  line-height: 1.7;
   font-weight: 400;
 }
 
@@ -143,9 +143,9 @@ img {
   gap: 8px;
   flex: 0 0 auto;
   color: var(--ink);
-  font-size: 0.92rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
 .top-brand small {
@@ -156,8 +156,9 @@ img {
   border-radius: 6px;
   color: var(--teal-dark);
   background: #edf8fa;
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .skip-link {
@@ -186,14 +187,14 @@ img {
 .page-top .nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
+  min-height: 36px;
   padding: 0 12px;
   border: 1px solid transparent;
   border-radius: 8px;
   color: #43516a;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .page-top .nav a:hover,
@@ -246,10 +247,10 @@ img {
   border-radius: 8px;
   color: #ffd78d;
   background: rgba(215, 166, 74, 0.10);
-  font-size: 0.68rem;
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: 0.055em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
   text-wrap: balance;
@@ -273,7 +274,7 @@ img {
   font-size: 2rem;
   line-height: 1.1;
   font-weight: 800;
-  letter-spacing: 0.10em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -285,8 +286,8 @@ img {
   max-width: 280px;
   margin: 16px auto 0;
   color: rgba(234, 243, 246, 0.76);
-  font-size: 0.92rem;
-  line-height: 1.75;
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
 
 .sidebar .sidebar-badges {
@@ -300,15 +301,15 @@ img {
 .sidebar .sidebar-badges span {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
+  min-height: 32px;
   padding: 0 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
   color: rgba(234, 243, 246, 0.88);
   background: rgba(255, 255, 255, 0.08);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .sidebar .sidebar-panel {
@@ -321,16 +322,16 @@ img {
 
 .sidebar .sidebar-panel .panel-label {
   color: rgba(234, 243, 246, 0.58);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .sidebar .sidebar-panel .panel-value {
   margin-top: 8px;
   color: #ffffff;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1.2;
 }
@@ -338,8 +339,8 @@ img {
 .sidebar .sidebar-panel .panel-text {
   margin-top: 10px;
   color: rgba(234, 243, 246, 0.70);
-  font-size: 0.84rem;
-  line-height: 1.65;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .sidebar .sidebar-panel code {
@@ -373,7 +374,8 @@ img {
   border-radius: 8px;
   color: rgba(234, 243, 246, 0.82);
   background: rgba(255, 255, 255, 0.065);
-  font-size: 0.86rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
@@ -395,7 +397,7 @@ img {
   width: 100%;
   padding: 18px 32px 26px;
   color: rgba(234, 243, 246, 0.52);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   line-height: 1.5;
   text-align: left;
 }
@@ -446,9 +448,9 @@ img {
   border-radius: 8px;
   color: var(--teal-dark);
   background: #edf8fa;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -499,14 +501,16 @@ img {
   max-width: 760px !important;
   margin: 0 0 12px !important;
   color: #26344b !important;
-  font-size: 1.38rem !important;
+  font-size: 1.375rem !important;
   line-height: 1.4 !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
 }
 
 .hero-description {
   max-width: 700px !important;
   color: var(--muted) !important;
+  font-size: 1.0625rem !important;
+  line-height: 1.7 !important;
 }
 
 .hero-actions {
@@ -522,8 +526,8 @@ img {
   gap: 10px 18px;
   margin-top: 22px;
   color: #647289;
-  font-size: 0.78rem;
-  font-weight: 750;
+  font-size: 0.8125rem;
+  font-weight: 600;
 }
 
 .hero-meta span {
@@ -551,9 +555,9 @@ img {
 .pipeline-label {
   margin-bottom: 14px;
   color: #7a8799;
-  font-size: 0.7rem;
-  font-weight: 850;
-  letter-spacing: 0.09em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -586,17 +590,17 @@ img {
 
 .pipeline-step span {
   color: #7b8799;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .pipeline-step strong {
   margin-top: 2px;
   color: var(--ink);
-  font-size: 0.9rem;
-  line-height: 1.3;
+  font-size: 0.9375rem;
+  line-height: 1.35;
 }
 
 .pipeline-step-output {
@@ -614,14 +618,14 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 42px;
+  min-height: 44px;
   padding: 0 14px;
   border-radius: 8px;
   border: 1px solid var(--line-strong);
   color: var(--ink);
   background: #ffffff;
-  font-weight: 800;
-  font-size: 0.88rem;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .button:hover {
@@ -686,7 +690,7 @@ img {
   border-top: 1px solid var(--line);
   font-size: 1.45rem;
   line-height: 1.25;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .post .post-content h3 {
@@ -694,7 +698,7 @@ img {
   color: #26344b;
   font-size: 1.08rem;
   line-height: 1.35;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .post .post-content h4 {
@@ -740,9 +744,9 @@ img {
   border-left: 3px solid var(--gold);
   color: var(--teal-dark);
   background: #f1f8f9;
-  font-size: 0.7rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -751,9 +755,9 @@ img {
   padding: 0;
   border: 0;
   color: var(--ink);
-  font-size: 2.35rem;
+  font-size: 2.25rem;
   line-height: 1.15;
-  font-weight: 900;
+  font-weight: 800;
   text-wrap: balance;
 }
 
@@ -761,8 +765,8 @@ img {
   max-width: 720px;
   margin: 14px 0 0;
   color: #617089;
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.0625rem;
+  line-height: 1.7;
 }
 
 .value-grid {
@@ -798,14 +802,15 @@ img {
 .post .post-content .value-card h3 {
   margin: 18px 0 8px;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.35;
+  font-weight: 700;
 }
 
 .value-card p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.9375rem;
+  line-height: 1.65;
 }
 
 .release-banner {
@@ -840,21 +845,22 @@ img {
 
 .release-copy > span {
   color: var(--teal-dark);
-  font-size: 0.7rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .post .post-content .release-copy h3 {
   margin: 3px 0 5px;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
+  font-weight: 700;
 }
 
 .release-copy p {
   margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 
 .release-history {
@@ -870,8 +876,8 @@ img {
   border-radius: 8px;
   color: #52617a;
   background: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.8125rem;
+  font-weight: 700;
   cursor: pointer;
   list-style: none;
   white-space: nowrap;
@@ -904,7 +910,7 @@ img {
   border-radius: 8px;
   background: #ffffff;
   box-shadow: var(--shadow);
-  font-size: 0.84rem;
+  font-size: 0.875rem;
 }
 
 .overview-grid {
@@ -930,7 +936,7 @@ img {
   color: var(--ink);
   font-size: 1.55rem;
   line-height: 1.25;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .overview-copy p:last-child {
@@ -970,9 +976,9 @@ img {
 
 .quick-fact-label {
   color: #6d7a90;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -980,7 +986,7 @@ img {
   margin-top: 4px;
   color: var(--ink);
   font-size: 1rem;
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.25;
 }
 
@@ -996,7 +1002,7 @@ img {
   cursor: pointer;
   list-style: none;
   color: var(--teal-dark);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .post-content .history-updates summary::-webkit-details-marker {
@@ -1138,9 +1144,9 @@ img {
   min-height: 40px;
   margin: 0;
   color: var(--ink);
-  font-size: 1.08rem;
-  line-height: 1.25;
-  font-weight: 850;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  font-weight: 700;
 }
 
 .workflow-rail-chip {
@@ -1149,16 +1155,16 @@ img {
   grid-row: 2;
   justify-self: start;
   align-items: center;
-  min-height: 26px;
+  min-height: 30px;
   margin-top: 0;
   padding: 0 8px;
   border: 1px solid #cdecef;
   border-radius: 8px;
   color: var(--teal-dark);
   background: #edf8fa;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .workflow-rail-card p {
@@ -1166,8 +1172,8 @@ img {
   z-index: 1;
   margin: 0;
   color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .workflow-rail-tags {
@@ -1182,14 +1188,14 @@ img {
 .workflow-rail-tags span {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
+  min-height: 30px;
   padding: 0 9px;
   border: 1px solid #e1e9f2;
   border-radius: 8px;
   color: #536179;
   background: #f7fafe;
-  font-size: 0.76rem;
-  font-weight: 750;
+  font-size: 0.8125rem;
+  font-weight: 600;
 }
 
 .workflow-spec-strip {
@@ -1209,16 +1215,16 @@ img {
 .workflow-spec-label {
   min-height: 28px;
   color: #6d7a90;
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .workflow-spec-value {
   color: var(--ink);
-  font-size: 1.08rem;
-  font-weight: 850;
+  font-size: 1.0625rem;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -1278,19 +1284,20 @@ img {
   color: var(--teal-dark);
   background: #f1fbfc;
   font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
   font-weight: 900;
 }
 
 .post .post-content .start-steps h3 {
   margin: 1px 0 4px;
-  font-size: 1rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
 }
 
 .start-steps p {
   margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 
 .command-console {
@@ -1310,14 +1317,14 @@ img {
   padding: 0 16px;
   border-bottom: 1px solid rgba(219, 234, 254, 0.13);
   color: #f2f7fb;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.8125rem;
+  font-weight: 700;
 }
 
 .console-head small {
   color: rgba(219, 234, 254, 0.52);
-  font-size: 0.68rem;
-  letter-spacing: 0.07em;
+  font-size: 0.75rem;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1335,8 +1342,8 @@ img {
   border: 0;
   color: #dbeafe;
   background: transparent;
-  font-size: 0.76rem;
-  line-height: 1.8;
+  font-size: 0.8125rem;
+  line-height: 1.7;
 }
 
 .console-note {
@@ -1345,8 +1352,8 @@ img {
   padding: 12px 16px;
   border-top: 1px solid rgba(219, 234, 254, 0.13);
   color: rgba(219, 234, 254, 0.66);
-  font-size: 0.72rem;
-  line-height: 1.5;
+  font-size: 0.75rem;
+  line-height: 1.55;
 }
 
 .console-note i {
@@ -1385,21 +1392,22 @@ img {
 
 .post .post-content .run-mode-card h3 {
   margin: 0 0 8px;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .run-mode-card code {
   display: block;
   padding: 7px 8px;
   overflow-wrap: anywhere;
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
   line-height: 1.55;
 }
 
 .run-mode-card p {
   margin: 7px 0 0;
-  font-size: 0.76rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
 .output-grid {
@@ -1434,9 +1442,9 @@ img {
   display: block;
   margin-bottom: 5px;
   color: #6d7a90;
-  font-size: 0.68rem;
-  font-weight: 850;
-  letter-spacing: 0.07em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1445,12 +1453,13 @@ img {
   max-width: 100%;
   overflow-wrap: anywhere;
   color: var(--ink);
-  font-weight: 800;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .output-card p {
   margin: 8px 0 0;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
@@ -1489,14 +1498,14 @@ img {
 
 .scope-note strong {
   color: #513c2d;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
 }
 
 .scope-note p {
   margin: 3px 0 0;
   color: #695447;
-  font-size: 0.84rem;
-  line-height: 1.65;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .download-grid {
@@ -1511,7 +1520,7 @@ img {
   gap: 14px;
   align-items: center;
   min-width: 0;
-  min-height: 124px;
+  min-height: 132px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1541,7 +1550,7 @@ img {
   color: #ffffff;
   background: var(--navy-2);
   font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 900;
 }
 
@@ -1553,22 +1562,23 @@ img {
   display: block;
   margin-bottom: 3px;
   color: var(--teal-dark);
-  font-size: 0.66rem;
-  font-weight: 850;
-  letter-spacing: 0.07em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .post .post-content .download-card h3 {
   margin: 0;
   overflow-wrap: anywhere;
-  font-size: 0.96rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .download-card p {
   margin: 5px 0 0;
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
 .download-card > i {
@@ -1594,7 +1604,7 @@ img {
   padding: 13px 14px;
   border-right: 1px solid var(--line);
   color: #627188;
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   text-align: center;
   overflow-wrap: anywhere;
 }
@@ -1607,8 +1617,8 @@ img {
   display: block;
   margin-bottom: 2px;
   color: var(--ink);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1620,7 +1630,7 @@ img {
   padding: 22px 2px 0;
   border-top: 1px solid var(--line-strong);
   color: #8190a5;
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
 }
 
 .article-footer a {
@@ -1716,7 +1726,7 @@ figure.highlight .code:after {
   margin-bottom: 12px;
   color: var(--ink);
   font-size: 1.35rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .list-with-title .listing {
@@ -1797,7 +1807,7 @@ a.btn,
   color: #536179;
   background: #ffffff;
   font-size: 0.88rem;
-  font-weight: 750;
+  font-weight: 700;
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
@@ -1892,7 +1902,7 @@ img[alt=CERTI] {
   }
 
   .post .post-content .section-heading h2 {
-    font-size: 2.05rem;
+    font-size: 2rem;
   }
 
   .value-grid {
@@ -1959,7 +1969,7 @@ img[alt=CERTI] {
   }
 
   .sidebar .logo-title .title h3 {
-    font-size: 1.6rem;
+    font-size: 1.625rem;
   }
 
   .sidebar .logo-title .description,
@@ -1993,7 +2003,7 @@ img[alt=CERTI] {
   }
 
   .post .post-title h1 {
-    font-size: 3.35rem;
+    font-size: 3.5rem;
   }
 
   .hero-pipeline {
@@ -2005,7 +2015,7 @@ img[alt=CERTI] {
   }
 
   .post .post-content .section-heading h2 {
-    font-size: 1.95rem;
+    font-size: 1.875rem;
   }
 
   .value-grid {
@@ -2057,7 +2067,7 @@ img[alt=CERTI] {
 
 @media screen and (max-width: 560px) {
   body {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .page-top {
@@ -2084,8 +2094,8 @@ img[alt=CERTI] {
 
   .page-top .nav a {
     min-height: 32px;
-    padding: 0 6px;
-    font-size: 0.72rem;
+    padding: 0 5px;
+    font-size: 0.75rem;
   }
 
   .sidebar .side-content {
@@ -2120,7 +2130,7 @@ img[alt=CERTI] {
   .sidebar .social-links a {
     justify-content: center;
     min-height: 38px;
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
   }
 
   .post .post-title {
@@ -2130,15 +2140,15 @@ img[alt=CERTI] {
 
   .post .post-title h1 {
     margin-top: 16px;
-    font-size: 2.85rem;
+    font-size: 3rem;
   }
 
   .hero-subtitle {
-    font-size: 1.16rem !important;
+    font-size: 1.2rem !important;
   }
 
   .hero-description {
-    font-size: 0.92rem !important;
+    font-size: 1rem !important;
   }
 
   .hero-pipeline {
@@ -2146,8 +2156,7 @@ img[alt=CERTI] {
   }
 
   .hero-meta {
-    display: grid;
-    gap: 8px;
+    display: none;
   }
 
   .content-section {
@@ -2159,7 +2168,7 @@ img[alt=CERTI] {
   }
 
   .post .post-content .section-heading h2 {
-    font-size: 1.7rem;
+    font-size: 1.75rem;
   }
 
   .value-grid,
@@ -2196,7 +2205,7 @@ img[alt=CERTI] {
   .workflow-spec-card,
   .value-card,
   .output-card {
-    padding: 16px;
+    padding: 18px;
   }
 
   .hero-actions {
@@ -2212,7 +2221,7 @@ img[alt=CERTI] {
   }
 
   .post .post-content .workflow-rail-head h3 {
-    font-size: 1rem;
+    font-size: 1.0625rem;
   }
 
   .workflow-rail-watermark {
@@ -2269,10 +2278,6 @@ img[alt=CERTI] {
 
 @media screen and (max-width: 360px) {
   .page-top .nav li:first-child {
-    display: none;
-  }
-
-  .hero-meta {
     display: none;
   }
 }
