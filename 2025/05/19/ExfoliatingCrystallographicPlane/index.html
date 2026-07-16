@@ -1,360 +1,353 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="ECP">
-  <title>ECP v1.3 · ECP</title>
-  <meta name="description" content="Updated ECP workflow with automated XRD, slab-level deduplication, StructureGraph + jimage bond counting, optimized plane scanning, and 2D slab export from the best cleavage plane.">
+  <title>ECP · Crystallographic Plane Screening</title>
+  <meta name="description" content="ECP screens exfoliable crystallographic planes in non-vdW bulk materials and exports ranked results with best-plane 2D slab models.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102238">
+  <link rel="canonical" href="https://yjndl.github.io/">
   <link rel="icon" href="/images/favicon.ico">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <meta content="yes" name="apple-mobile-web-app-capable">
-  <meta content="black" name="apple-mobile-web-app-status-bar-style">
-  <meta content="telephone=no" name="format-detection">
-  <meta name="renderer" content="webkit">
   <link rel="stylesheet" href="/css/blog_basic.css">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="page-top animated fadeInDown">
-    <ul class="nav">
-      <li><a href="#ecp-v1-3">Overview</a></li>
-      <li><a href="#whats-new">Updates</a></li>
-      <li><a href="#workflow">Workflow</a></li>
-      <li><a href="#usage">Usage</a></li>
-      <li><a href="#downloads">Downloads</a></li>
-    </ul>
-  </div>
+  <a class="skip-link" href="#overview">Skip to content</a>
 
-  <div class="sidebar animated fadeInDown">
+  <header class="page-top animated fadeInDown">
+    <a class="top-brand" href="#ecp-v1-3" aria-label="ECP home">
+      <span>ECP</span>
+      <small>v1.3</small>
+    </a>
+    <nav aria-label="Page sections">
+      <ul class="nav">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#usage">Quick Start</a></li>
+        <li><a href="#outputs">Outputs</a></li>
+        <li><a href="#downloads">Downloads</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <aside class="sidebar animated fadeInDown">
     <div class="side-content">
       <div class="logo-title">
         <div class="title">
-          <div class="eyebrow">Computational Exfoliation Workflow</div>
+          <div class="eyebrow">Materials Screening Toolkit</div>
           <img class="brand-logo" src="/images/logo@2x.png" alt="ECP logo">
           <h3><a href="/">ECP</a></h3>
         </div>
         <p class="description">
-          Automated XRD screening, slab-level structural deduplication, and explicit
-          periodic bond counting for non-vdW exfoliation studies.
+          Screen cleavage planes in non-vdW bulk structures and export ranked, reproducible 2D slab models.
         </p>
-        <div class="sidebar-badges">
-          <span>Auto XRD</span>
-          <span>Jimage Bonds</span>
-          <span>Smart Scan</span>
+        <div class="sidebar-badges" aria-label="Core capabilities">
+          <span>XRD candidates</span>
+          <span>Bond tracing</span>
+          <span>2D export</span>
         </div>
         <div class="sidebar-panel">
-          <div class="panel-label">Current Release</div>
-          <div class="panel-value">ECP v1.3</div>
-          <div class="panel-text">Built around the current production workflow in <code>version_5.0.py</code>.</div>
+          <div class="panel-label">Production Core</div>
+          <div class="panel-value">version_5.0.py</div>
+          <div class="panel-text">Current ECP v1.3 workflow with automated XRD, adaptive plane scans, and best-plane export.</div>
         </div>
       </div>
       <ul class="social-links">
-        <li><a target="_blank" rel="noopener" href="https://github.com/YJNDL"><i class="fa fa-github"></i>GitHub Profile</a></li>
+        <li><a target="_blank" rel="noopener" href="https://github.com/YJNDL/yjndl.github.io"><i class="fa fa-github"></i>Project Repository</a></li>
         <li><a href="mailto:arvin_huang@szu.edu.cn"><i class="fa fa-envelope"></i>arvin_huang@szu.edu.cn</a></li>
         <li><a href="mailto:zhongyongle927@gmail.com"><i class="fa fa-envelope"></i>zhongyongle927@gmail.com</a></li>
       </ul>
     </div>
     <div class="footer">
-      <div class="p"><span>© 2026 </span><i class="fa fa-star"></i><span> ECP</span></div>
-      <div class="by_farbox">
-        <span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a>
-        <span> & </span><a href="https://github.com/Cytrogen/hexo-theme-Anatole-Core-Resume" target="_blank">Anatole-Core-Resume</a>
-      </div>
+      <div><span>© 2026 ECP</span></div>
+      <div><span>MIT licensed · Published with GitHub Pages</span></div>
     </div>
-  </div>
+  </aside>
 
-  <div class="content">
-    <div class="post animated fadeInDown" id="ecp-v1-3">
-      <div class="post-title">
-        <div class="release-kicker">Release Documentation</div>
-        <h1><a>ECP v1.3: Updated Plane Screening Workflow</a></h1>
-        <p>Automated XRD candidate generation, slab-level deduplication, explicit periodic bond tracing, smart cleavage scanning, and best-plane 2D slab export.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="/downloads/version_5.0.py"><i class="fa fa-download"></i>Download version_5.0.py</a>
-          <a class="button button-secondary" target="_blank" rel="noopener" href="https://github.com/YJNDL/yjndl.github.io"><i class="fa fa-github"></i>View Repository</a>
+  <main class="content">
+    <article class="post animated fadeInDown" id="ecp-v1-3">
+      <header class="post-title">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="release-kicker"><span class="status-dot"></span>Current release · v1.3</div>
+            <h1>ECP</h1>
+            <p class="hero-subtitle">Exfoliating Crystallographic Plane screening for non-vdW materials.</p>
+            <p class="hero-description">Turn bulk crystal structures into ranked cleavage candidates and ready-to-relax 2D slab models with an explicit, reproducible bond-counting workflow.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="/downloads/version_5.0.py"><i class="fa fa-download"></i>Download Core Script</a>
+              <a class="button button-secondary" target="_blank" rel="noopener" href="https://github.com/YJNDL/yjndl.github.io"><i class="fa fa-github"></i>View Repository</a>
+            </div>
+            <div class="hero-meta" aria-label="Project facts">
+              <span><i class="fa fa-code"></i>Python 3.9-3.12</span>
+              <span><i class="fa fa-list-ol"></i>7 screening stages</span>
+              <span><i class="fa fa-cube"></i>Best-plane 2D export</span>
+            </div>
+          </div>
+
+          <div class="hero-pipeline" aria-label="ECP production path">
+            <div class="pipeline-label">Production path</div>
+            <div class="pipeline-step">
+              <i class="fa fa-file-code-o"></i>
+              <div><span>Input</span><strong>Bulk POSCAR</strong></div>
+            </div>
+            <i class="fa fa-long-arrow-down pipeline-arrow" aria-hidden="true"></i>
+            <div class="pipeline-step">
+              <i class="fa fa-sitemap"></i>
+              <div><span>Screen</span><strong>XRD → slabs → bonds</strong></div>
+            </div>
+            <i class="fa fa-long-arrow-down pipeline-arrow" aria-hidden="true"></i>
+            <div class="pipeline-step pipeline-step-output">
+              <i class="fa fa-cubes"></i>
+              <div><span>Output</span><strong>Ranked planes + 2D slab</strong></div>
+            </div>
+          </div>
         </div>
-      </div>
+      </header>
 
       <div class="post-content">
-        <section class="overview-grid" aria-label="ECP v1.3 overview">
-          <div class="overview-copy">
-            <h2 class="overview-heading">Exfoliating Crystallographic Plane (ECP) v1.3</h2>
-            <p>
-              This page documents the current production workflow for screening exfoliable crystallographic planes
-              from non-vdW bulk materials. The method has been updated to match the latest implementation used in
-              <code>version_5.0.py</code>.
-            </p>
+        <section class="content-section" id="overview">
+          <div class="section-heading">
+            <span class="section-kicker">Overview</span>
+            <h2>From a bulk crystal to actionable cleavage models</h2>
+            <p>ECP is built for fast pre-screening before higher-cost first-principles validation. It keeps physically distinct slabs, tracks periodic bonds explicitly, and records the exact cleavage position used for export.</p>
           </div>
-          <div class="quick-facts">
-            <div class="quick-fact">
-              <i class="fa fa-code"></i>
-              <div>
-                <div class="quick-fact-label">Production Script</div>
-                <div class="quick-fact-value">version_5.0.py</div>
-              </div>
+
+          <div class="value-grid">
+            <article class="value-card">
+              <i class="fa fa-line-chart"></i>
+              <h3>Generate candidates automatically</h3>
+              <p>Build XRD reflection tables directly from structures and filter weak peaks before slab generation.</p>
+            </article>
+            <article class="value-card">
+              <i class="fa fa-object-group"></i>
+              <h3>Preserve meaningful structures</h3>
+              <p>Deduplicate only structurally identical slabs while retaining distinct terminations and stackings.</p>
+            </article>
+            <article class="value-card">
+              <i class="fa fa-code-fork"></i>
+              <h3>Count periodic bonds explicitly</h3>
+              <p>Use StructureGraph and jimage-aware edges to reduce ambiguity at periodic boundaries.</p>
+            </article>
+          </div>
+
+          <div class="release-banner" id="whats-new">
+            <div class="release-version">v1.3</div>
+            <div class="release-copy">
+              <span>Current release</span>
+              <h3>Best-plane 2D models are now exported directly</h3>
+              <p>The result table records the selected cleavage height and shift, then <code>version_5.0.py</code> regenerates <code>POSCAR_2D_h_k_l.vasp</code> with surfaces aligned to that minimum-density position.</p>
             </div>
-            <div class="quick-fact">
-              <i class="fa fa-sitemap"></i>
-              <div>
-                <div class="quick-fact-label">Workflow</div>
-                <div class="quick-fact-value">7 linked screening stages</div>
-              </div>
-            </div>
-            <div class="quick-fact">
-              <i class="fa fa-cube"></i>
-              <div>
-                <div class="quick-fact-label">2D Export</div>
-                <div class="quick-fact-value">POSCAR_2D_h_k_l.vasp</div>
-              </div>
-            </div>
+            <details class="release-history">
+              <summary>v1.2 history</summary>
+              <ul>
+                <li>Automated XRD generation with <code>pymatgen</code>.</li>
+                <li>Conservative hkl filtering followed by structural slab deduplication.</li>
+                <li><code>fixed</code>, <code>event</code>, and <code>auto</code> scan modes.</li>
+                <li>Primary ranking by <code>bonding_density = N / V_old</code>.</li>
+              </ul>
+            </details>
           </div>
         </section>
 
-        <h2 id="whats-new">What Is New in v1.3</h2>
-        <ul>
-          <li>The production script is now <code>version_5.0.py</code>, and the result table records the best cleavage height, shift, and 2D slab metadata for each retained surface.</li>
-          <li>After the minimum-bonding-density plane is identified, the workflow regenerates a dedicated <code>POSCAR_2D_h_k_l.vasp</code> model whose top and bottom surfaces correspond to that optimal cleavage position.</li>
-        </ul>
-        <details class="history-updates">
-          <summary>Historical Updates: v1.2</summary>
-          <ul>
-            <li>Automated XRD generation from crystal structures using <code>pymatgen</code>; no manual VESTA export is required.</li>
-            <li>Candidate <code>hkl</code> processing is more conservative: low-intensity reflections can be filtered, obvious duplicates such as <code>001/002</code> and <code>001/00-1</code> are merged, but non-equivalent directions such as <code>102</code> and <code>012</code> are retained until slab generation.</li>
-            <li>Before cleavage scanning, all generated slabs are compared. Only slabs with identical structures are deduplicated; different slab terminations or different internal stackings are kept.</li>
-            <li>Broken bonds are counted with <code>StructureGraph + jimage</code>, avoiding manual image mapping and reducing periodic-boundary ambiguity.</li>
-            <li>Cleavage-plane scanning supports <code>fixed</code>, <code>event</code>, and <code>auto</code> modes. The event mode evaluates only the heights where the bond topology or <code>V_old</code> can change.</li>
-            <li>The main screening metric in the production workflow is <code>bonding_density = N / V_old</code>, while <code>N / A</code> is kept as an auxiliary area-normalized descriptor.</li>
-          </ul>
-        </details>
-
-        <h2 id="workflow">Updated Workflow</h2>
-        <p>
-          The production pipeline is summarized below as seven linked stages, from reflection generation to the
-          final cleavage ranking.
-        </p>
-
-        <div class="workflow-rail">
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">01</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-line-chart"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Auto XRD Candidates</h3>
-                  <span class="workflow-rail-chip">XRDCalculator</span>
-                </div>
-              </div>
-              <p>Generate reflection candidates directly from the bulk structure and remove weak peaks before slab construction.</p>
-              <div class="workflow-rail-tags">
-                <span>2θ window</span>
-                <span>intensity filter</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">02</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-filter"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Conservative hkl Filtering</h3>
-                  <span class="workflow-rail-chip">keep true directions</span>
-                </div>
-              </div>
-              <p>Merge only trivial duplicates early, while retaining non-equivalent directions until real slab structures can be compared.</p>
-              <div class="workflow-rail-tags">
-                <span>001 = 002</span>
-                <span>102 ≠ 012</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">03</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-cubes"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Stable Slab Build</h3>
-                  <span class="workflow-rail-chip">production geometry</span>
-                </div>
-              </div>
-              <p>Construct slabs with the fixed production settings so the internal scan region stays reproducible across materials.</p>
-              <div class="workflow-rail-tags">
-                <span>center_slab = False</span>
-                <span>vacuum = 5 Å</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">04</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-check-square-o"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Slab Identity Check</h3>
-                  <span class="workflow-rail-chip">deduplicate after build</span>
-                </div>
-              </div>
-              <p>Skip only slabs that are structurally identical after generation, instead of over-relying on symmetry reduction up front.</p>
-              <div class="workflow-rail-tags">
-                <span>same slab → reuse</span>
-                <span>different stacking → keep</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">05</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-code-fork"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Jimage Bond Tracing</h3>
-                  <span class="workflow-rail-chip">StructureGraph</span>
-                </div>
-              </div>
-              <p>Track broken bonds with explicit periodic edges so each crossing bond is counted with its <code>jimage</code> context.</p>
-              <div class="workflow-rail-tags">
-                <span>periodic edges</span>
-                <span>broken bond pairs</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">06</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-tachometer"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Smart Scan and Rank</h3>
-                  <span class="workflow-rail-chip">auto / fixed / event</span>
-                </div>
-              </div>
-              <p>Choose the cheaper scan strategy for each slab, then rank cleavage positions with the production metric <code>N / V_old</code>.</p>
-              <div class="workflow-rail-tags">
-                <span>scan mode</span>
-                <span>bonding_density</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="workflow-rail-item">
-            <div class="workflow-rail-card">
-              <div class="workflow-rail-watermark">07</div>
-              <div class="workflow-rail-head">
-                <span class="workflow-rail-icon"><i class="fa fa-download"></i></span>
-                <div class="workflow-rail-title">
-                  <h3>Export 2D Model</h3>
-                  <span class="workflow-rail-chip">best cleavage layer</span>
-                </div>
-              </div>
-              <p>Regenerate a dedicated 2D slab from the original bulk so the top and bottom surfaces align with the previously selected minimum-density cleavage position.</p>
-              <div class="workflow-rail-tags">
-                <span>POSCAR_2D_h_k_l</span>
-                <span>best-plane termination</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="workflow-spec-strip">
-          <div class="workflow-spec-card">
-            <div class="workflow-spec-label">Slab Thickness</div>
-            <div class="workflow-spec-value">4 × ceil(d)</div>
+        <section class="content-section" id="workflow">
+          <div class="section-heading">
+            <span class="section-kicker">Method</span>
+            <h2>Seven linked screening stages</h2>
+            <p>Each stage narrows the search while retaining the structural information needed to reproduce the final ranking.</p>
           </div>
-          <div class="workflow-spec-card">
-            <div class="workflow-spec-label">Vacuum</div>
-            <div class="workflow-spec-value">5 Å</div>
+
+          <div class="workflow-rail">
+            <article class="workflow-rail-item">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">01</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-line-chart"></i></span>
+                  <div class="workflow-rail-title"><h3>Auto XRD Candidates</h3><span class="workflow-rail-chip">XRDCalculator</span></div>
+                </div>
+                <p>Generate reflection candidates from the bulk structure and remove weak peaks before slab construction.</p>
+                <div class="workflow-rail-tags"><span>2θ window</span><span>intensity filter</span></div>
+              </div>
+            </article>
+
+            <article class="workflow-rail-item">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">02</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-filter"></i></span>
+                  <div class="workflow-rail-title"><h3>Conservative hkl Filtering</h3><span class="workflow-rail-chip">keep true directions</span></div>
+                </div>
+                <p>Merge trivial duplicates early while retaining non-equivalent directions for real slab comparison.</p>
+                <div class="workflow-rail-tags"><span>001 = 002</span><span>102 ≠ 012</span></div>
+              </div>
+            </article>
+
+            <article class="workflow-rail-item">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">03</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-cubes"></i></span>
+                  <div class="workflow-rail-title"><h3>Stable Slab Build</h3><span class="workflow-rail-chip">production geometry</span></div>
+                </div>
+                <p>Construct slabs with fixed production settings so the internal scan region remains reproducible.</p>
+                <div class="workflow-rail-tags"><span>center_slab = False</span><span>vacuum = 5 Å</span></div>
+              </div>
+            </article>
+
+            <article class="workflow-rail-item">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">04</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-check-square-o"></i></span>
+                  <div class="workflow-rail-title"><h3>Slab Identity Check</h3><span class="workflow-rail-chip">deduplicate after build</span></div>
+                </div>
+                <p>Skip only structurally identical slabs; distinct terminations and internal stackings are preserved.</p>
+                <div class="workflow-rail-tags"><span>same slab → reuse</span><span>different stacking → keep</span></div>
+              </div>
+            </article>
+
+            <article class="workflow-rail-item">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">05</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-code-fork"></i></span>
+                  <div class="workflow-rail-title"><h3>Jimage Bond Tracing</h3><span class="workflow-rail-chip">StructureGraph</span></div>
+                </div>
+                <p>Track crossing bonds as explicit periodic edges with their jimage context.</p>
+                <div class="workflow-rail-tags"><span>periodic edges</span><span>broken bond pairs</span></div>
+              </div>
+            </article>
+
+            <article class="workflow-rail-item">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">06</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-tachometer"></i></span>
+                  <div class="workflow-rail-title"><h3>Smart Scan and Rank</h3><span class="workflow-rail-chip">auto / fixed / event</span></div>
+                </div>
+                <p>Select the appropriate scan strategy and rank positions with the production metric <code>N / V_old</code>.</p>
+                <div class="workflow-rail-tags"><span>adaptive scan</span><span>bonding_density</span></div>
+              </div>
+            </article>
+
+            <article class="workflow-rail-item workflow-rail-item-wide">
+              <div class="workflow-rail-card">
+                <div class="workflow-rail-watermark">07</div>
+                <div class="workflow-rail-head">
+                  <span class="workflow-rail-icon"><i class="fa fa-download"></i></span>
+                  <div class="workflow-rail-title"><h3>Export the Best 2D Model</h3><span class="workflow-rail-chip">selected termination</span></div>
+                </div>
+                <p>Regenerate a dedicated slab whose top and bottom surfaces match the selected minimum-density cleavage position.</p>
+                <div class="workflow-rail-tags"><span>POSCAR_2D_h_k_l.vasp</span><span>ready for relaxation</span></div>
+              </div>
+            </article>
           </div>
-          <div class="workflow-spec-card">
-            <div class="workflow-spec-label">Bond Backend</div>
-            <div class="workflow-spec-value">StructureGraph + Jimage</div>
+
+          <div class="workflow-spec-strip">
+            <div class="workflow-spec-card"><div class="workflow-spec-label">Slab thickness</div><div class="workflow-spec-value">4 × ceil(d)</div></div>
+            <div class="workflow-spec-card"><div class="workflow-spec-label">Vacuum</div><div class="workflow-spec-value">5 Å</div></div>
+            <div class="workflow-spec-card"><div class="workflow-spec-label">Bond backend</div><div class="workflow-spec-value">StructureGraph + jimage</div></div>
+            <div class="workflow-spec-card"><div class="workflow-spec-label">Primary metric</div><div class="workflow-spec-value">N / V_old</div></div>
           </div>
-          <div class="workflow-spec-card">
-            <div class="workflow-spec-label">Primary Metric</div>
-            <div class="workflow-spec-value">N / V_old</div>
+        </section>
+
+        <section class="content-section" id="usage">
+          <div class="section-heading">
+            <span class="section-kicker">Quick Start</span>
+            <h2>Configure once, then run the production script</h2>
+            <p>The default entry point reads <code>SCRIPT_RUN_CONFIG</code> near the top of <code>version_5.0.py</code>. Command-line subcommands remain available when needed.</p>
           </div>
-        </div>
-        <blockquote>
-          <p><strong>2D export:</strong> once the best internal cleavage plane is identified, <code>version_5.0.py</code> writes a corresponding <code>POSCAR_2D_h_k_l.vasp</code> model into the same <code>face_h_k_l</code> folder for downstream relaxation or visualization.</p>
-        </blockquote>
 
-        <h2 id="usage">Recommended Usage</h2>
+          <div class="start-grid">
+            <ol class="start-steps">
+              <li><span>01</span><div><h3>Install the environment</h3><p>Use Python 3.9-3.12 with pymatgen, ASE, pandas, and the supporting packages below.</p></div></li>
+              <li><span>02</span><div><h3>Set input and scan options</h3><p>Edit <code>poscar_folder</code>, <code>scan_mode</code>, intensity thresholds, and output paths in the config block.</p></div></li>
+              <li><span>03</span><div><h3>Run and inspect outputs</h3><p>Start the script, then review ranked tables in <code>after_deal/</code> and models in each surface folder.</p></div></li>
+            </ol>
 
-        <h3>Local Batch Workflow</h3>
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span></pre></td><td class="code"><pre><span class="line">python version_5.0.py</span><br><span class="line"># the script reads the built-in config block by default</span></pre></td></tr></table></figure>
+            <div class="command-console">
+              <div class="console-head"><span>Local batch</span><small>Terminal</small></div>
+              <pre><code>pip install numpy pandas matplotlib pymatgen ase openpyxl tqdm
 
-        <h3>Parallel Representative Workflow</h3>
-        <p>
-          To process many representative structures in parallel, edit the <code>USER_CONFIG</code> block in
-          <code>run_version_5_parallel.py</code> and run:
-        </p>
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">python run_version_5_parallel.py</span></pre></td></tr></table></figure>
-        <p>
-          The launcher prepares a flat input staging directory from <code>materials_ecp_representatives</code> and
-          then calls <code>version_5.0.py</code> with process-level parallelism.
-        </p>
+python version_5.0.py</code></pre>
+              <div class="console-note"><i class="fa fa-info-circle"></i>Direct execution uses the built-in config block by default.</div>
+            </div>
+          </div>
 
-        <h3>Server Workflow</h3>
-        <p>
-          For HPC usage, each material can be prepared as an independent job folder that contains:
-        </p>
-        <ul>
-          <li>the target <code>.vasp</code> file</li>
-          <li><code>version_5.0.py</code></li>
-          <li><code>newvasp.sh</code></li>
-          <li>an optional pre-generated <code>XRD/</code> folder</li>
-        </ul>
-        <p>
-          This allows direct submission with:
-        </p>
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sbatch newvasp.sh</span></pre></td></tr></table></figure>
+          <div class="run-mode-grid">
+            <article class="run-mode-card">
+              <i class="fa fa-line-chart"></i>
+              <div><h3>Generate XRD only</h3><code>python version_5.0.py generate-xrd --input-dir INPUT_DIR --output-dir XRD</code></div>
+            </article>
+            <article class="run-mode-card">
+              <i class="fa fa-tasks"></i>
+              <div><h3>Parallel representative set</h3><code>python run_version_5_parallel.py</code><p>Edit <code>USER_CONFIG</code> before running.</p></div>
+            </article>
+            <article class="run-mode-card">
+              <i class="fa fa-server"></i>
+              <div><h3>Cluster job</h3><code>sbatch newvasp.sh</code><p>Use the shell files as templates for your scheduler and paths.</p></div>
+            </article>
+          </div>
+        </section>
 
-        <h2 id="downloads">Download Scripts</h2>
-        <ul>
-          <li><a href="/downloads/version_5.0.py">version_5.0.py</a>: the current production script for material screening and best-plane 2D slab export.</li>
-          <li><a href="/downloads/run_version_5_parallel.py">run_version_5_parallel.py</a>: optional parallel launcher for representative datasets; modify the <code>USER_CONFIG</code> block to match your local paths and Python environment.</li>
-          <li><a href="/downloads/prepare_newvasp_jobs.sh">prepare_newvasp_jobs.sh</a>: helper script for preparing per-material job folders; modify paths and environment settings according to your own machine.</li>
-          <li><a href="/downloads/submit_all_newvasp.sh">submit_all_newvasp.sh</a>: helper script for submitting all prepared jobs; modify it according to your own cluster usage.</li>
-        </ul>
-        <blockquote>
-          <p><strong>Note:</strong> <code>version_5.0.py</code> is the core materials-analysis script. <code>run_version_5_parallel.py</code> is an optional launcher for multi-material parallel runs and should be edited to match your local representative root, Python executable, and output paths. The shell scripts are also templates and should be adjusted to match your own server environment, paths, and scheduler settings.</p>
-        </blockquote>
+        <section class="content-section" id="outputs">
+          <div class="section-heading">
+            <span class="section-kicker">Outputs</span>
+            <h2>Results that remain traceable to the selected plane</h2>
+            <p>Each retained surface keeps its ranking data, evaluated geometry, and exported 2D structure together.</p>
+          </div>
 
-        <h2>Dependencies</h2>
-        <ul>
-          <li>Python 3.9-3.12</li>
-          <li><code>numpy</code>, <code>pandas</code>, <code>matplotlib</code>, <code>pymatgen</code>, <code>ase</code>, <code>openpyxl</code>, <code>tqdm</code></li>
-        </ul>
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">pip install numpy pandas matplotlib pymatgen ase openpyxl tqdm</span></pre></td></tr></table></figure>
+          <div class="output-grid">
+            <article class="output-card"><i class="fa fa-table"></i><div><span>Ranked results</span><code>after_deal/*.xlsx</code><p>Per-material metrics, selected height, shift, and scan metadata.</p></div></article>
+            <article class="output-card"><i class="fa fa-folder-open-o"></i><div><span>Surface workspace</span><code>face_h_k_l/</code><p>Files grouped by the retained Miller-index surface.</p></div></article>
+            <article class="output-card"><i class="fa fa-cube"></i><div><span>Evaluated slab</span><code>POSCAR_h_k_l.vasp</code><p>The slab geometry used during cleavage-plane evaluation.</p></div></article>
+            <article class="output-card output-card-accent"><i class="fa fa-cubes"></i><div><span>Best-plane 2D model</span><code>POSCAR_2D_h_k_l.vasp</code><p>The final termination selected from the minimum bonding-density position.</p></div></article>
+          </div>
 
-        <h2>Scope</h2>
-        <p>
-          ECP v1.3 is intended for fast screening of potentially exfoliable crystallographic planes before
-          higher-cost first-principles validation. The current implementation emphasizes reproducibility of slab
-          construction, explicit periodic bond handling, reduced redundant scans, and direct export of the final 2D cleavage model.
-        </p>
+          <div class="scope-note">
+            <i class="fa fa-flask"></i>
+            <div><strong>Screening scope</strong><p>ECP prioritizes candidates for downstream study. Final exfoliation claims should still be validated with higher-accuracy structural relaxation and first-principles calculations.</p></div>
+          </div>
+        </section>
 
-        <hr>
-        <h2>License</h2>
-        <p>This project is licensed under the MIT License.</p>
+        <section class="content-section" id="downloads">
+          <div class="section-heading">
+            <span class="section-kicker">Downloads</span>
+            <h2>Choose the entry point for your workload</h2>
+            <p>The Python files are maintained entry points. The shell scripts are editable templates for cluster preparation and submission.</p>
+          </div>
+
+          <div class="download-grid">
+            <a class="download-card download-card-primary" href="/downloads/version_5.0.py">
+              <span class="download-type">PY</span><div><small>Production</small><h3>version_5.0.py</h3><p>Core screening, ranking, and best-plane export.</p></div><i class="fa fa-download"></i>
+            </a>
+            <a class="download-card" href="/downloads/run_version_5_parallel.py">
+              <span class="download-type">PY</span><div><small>Optional launcher</small><h3>run_version_5_parallel.py</h3><p>Process representative material sets in parallel.</p></div><i class="fa fa-download"></i>
+            </a>
+            <a class="download-card" href="/downloads/prepare_newvasp_jobs.sh">
+              <span class="download-type">SH</span><div><small>Cluster template</small><h3>prepare_newvasp_jobs.sh</h3><p>Create per-material job folders.</p></div><i class="fa fa-download"></i>
+            </a>
+            <a class="download-card" href="/downloads/submit_all_newvasp.sh">
+              <span class="download-type">SH</span><div><small>Cluster template</small><h3>submit_all_newvasp.sh</h3><p>Submit prepared jobs in a batch.</p></div><i class="fa fa-download"></i>
+            </a>
+          </div>
+
+          <div class="environment-strip">
+            <span><strong>Python</strong> 3.9-3.12</span>
+            <span><strong>Structure</strong> pymatgen · ASE</span>
+            <span><strong>Data</strong> pandas · openpyxl</span>
+            <span><strong>License</strong> MIT</span>
+          </div>
+        </section>
       </div>
 
-      <div class="post-footer">
-        <div class="meta">
-          <div class="info"><hr></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pagination"><ul class="clearfix"></ul></div>
-  </div>
-
+      <footer class="article-footer">
+        <span>ECP v1.3</span>
+        <a target="_blank" rel="noopener" href="https://github.com/YJNDL/yjndl.github.io">Source on GitHub <i class="fa fa-external-link"></i></a>
+      </footer>
+    </article>
+  </main>
 </body>
 </html>
