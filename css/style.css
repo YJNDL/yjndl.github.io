@@ -734,19 +734,39 @@ img {
 }
 
 .pipeline-arrow {
-  display: block;
-  margin: 5px 0 5px 18px;
-  color: #79c8ce;
-  animation: arrow-drift 2.2s ease-in-out infinite;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40px;
+  height: 20px;
+  margin: 3px 0 3px 12px;
+  font-size: 0;
+  line-height: 0;
 }
 
-@keyframes arrow-drift {
-  0%, 100% { transform: translateY(0); opacity: 0.75; }
-  50% { transform: translateY(3px); opacity: 1; }
+.pipeline-arrow:before {
+  content: "";
+  width: 2px;
+  height: 14px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #b5e2e6, #2fb8c6);
+}
+
+.pipeline-arrow:after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #2fb8c6;
+  border-bottom: 2px solid #2fb8c6;
+  border-radius: 1px;
+  transform: translateX(-50%) rotate(45deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pipeline-arrow,
   .status-dot {
     animation: none;
   }
@@ -2164,10 +2184,10 @@ img[alt=CERTI] {
   }
 
   .pipeline-arrow {
-    margin: 0;
-    text-align: center;
+    width: 18px;
+    margin: 0 auto;
+    align-self: center;
     transform: rotate(-90deg);
-    animation: none;
   }
 
   .start-grid {
