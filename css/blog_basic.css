@@ -26,7 +26,7 @@
   font-weight: bold;
   text-align: center;
   background-color: #f66;
-  font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif
 }
 
 .content > .post > .post-content > p {
@@ -488,7 +488,7 @@ dl dt {
         text-decoration: none; }
         #fb_new_comment .c_button, #fb_new_comment #c_submit {
           cursor: pointer;
-          font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+          font-family: Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
           font-size: 1em;
           line-height: 1.3em;
           letter-spacing: 1px;
