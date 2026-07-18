@@ -467,6 +467,49 @@ img {
   text-align: center;
 }
 
+.visit-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 296px;
+  margin: 12px 0 0;
+}
+
+.visit-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+  padding: 12px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.065);
+  text-align: center;
+}
+
+.visit-stat i {
+  margin-bottom: 4px;
+  color: #8fd7dc;
+  font-size: 0.875rem;
+}
+
+.visit-stat-value {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.visit-stat-label {
+  color: rgba(234, 243, 246, 0.60);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .footer {
   position: static;
   width: 100%;
@@ -2266,6 +2309,10 @@ img[alt=CERTI] {
   .sidebar .social-links {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 20px auto 0;
+  }
+
+  .visit-stats {
+    margin: 14px auto 0;
   }
 
   .footer {
